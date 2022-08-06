@@ -44,14 +44,14 @@
         };
 
         window.addEventListener("keydown", (event) => {
-            if (event.keyCode == 70)  // F
+            if (event.keyCode == 70 || event.keyCode == 37)  // F or "ArrowLeft"
             {
                 if (inputs.leftResetted) {
                     inputs.left = true;
                     inputs.leftResetted = false;
                 }
             }
-            if (event.keyCode == 74)  // J
+            if (event.keyCode == 74 || event.keyCode == 39)  // J or "ArrowRight"
             {
                 if (inputs.rightResetted) {
                     inputs.right = true;
@@ -61,11 +61,11 @@
         });
 
         window.addEventListener("keyup", (event) => {
-            if (event.keyCode == 70)  // F
+            if (event.keyCode == 70 || event.keyCode == 37)  // F or "ArrowLeft"
             {
                 inputs.leftResetted = true;
             }
-            if (event.keyCode == 74)  // J
+            if (event.keyCode == 74 || event.keyCode == 39)  // J or "ArrowRight"
             {
                 inputs.rightResetted = true;
             }
@@ -103,8 +103,6 @@
             if (gameState.mula.x > gameState.mula.boundsX[1]) {
                 gameState.mula.x = gameState.mula.boundsX[1];
             }
-            console.log(gameState.mula.x);
-            console.log(gameState.mula.vx);
         }
         function draw() {
             const canvas = document.getElementById("mula-canvas");
@@ -138,7 +136,6 @@
                 ctx.stroke();
 
                 const distanceToEllipse = (x-600)*(x-600)/(a*a) + (y-250)*(y-250)/(b*b);
-                // console.log(distanceToEllipse);
                 if (distanceToEllipse <= 1) {
                     alert("La mula ha tocado el punto...");
                     return;
