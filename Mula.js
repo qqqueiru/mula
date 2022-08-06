@@ -2,11 +2,12 @@
  * Clase que define una elipse simple que siempre está en horizontal
  */
 class Ellipse {
-    constructor(xCenter, yCenter, a, b) {
+    constructor(xCenter, yCenter, a, b, ctx) {
         this.x = xCenter;
         this.y = yCenter;
         this.a = a;  // Semieje mayor
         this.b = b;  // Semieje menor
+        this.ctx = ctx;
     }
     isPointInsideEllipse(x, y) {
         const distance =
@@ -18,20 +19,26 @@ class Ellipse {
         this.x = newX;
         this.y = newY;
     }
+    draw() {
+        this.ctx.beginPath();
+        this.ctx.ellipse(this.x, this.y, this.a, this.b, 0, 0, 2 * Math.PI);
+        this.ctx.stroke();
+    }
 }
 
 /**
  * Clase que gestiona la lógica de la mula. Puede que también su dibujado.
  */
 class Mula {
-    constructor(x, y) {
+    constructor(x, y, ctx) {
         this.x = x;
         this.y = y;
+        this.ctx = ctx;
         this.vx = 0;  // Se permiten velocidades entre -5 y 5
         this.xLimits = [100, 1820];
         this.maxSpeed = 10;
         this.speedIncrement = 2;
-        this.boundingEllipse = new Ellipse(x, y, 200, 100);
+        this.goodBoundingEllipse = new Ellipse(x, y, 200, 100, ctx);
     }
 
     commandToLeft() {
@@ -61,6 +68,14 @@ class Mula {
             this.x = this.xLimits[1];
         }
 
-        this.boundingEllipse.setCenter(this.x, this.y);
+        this.goodBoundingEllipse.setCenter(this.x, this.y);
+    }
+
+    catchesGoody(x, y) {
+        return this.goodBoundingEllipse.isPointInsideEllipse(x, y);
+    }
+
+    drawDebugGoodBounding() {
+        this.goodBoundingEllipse.draw();
     }
 }
