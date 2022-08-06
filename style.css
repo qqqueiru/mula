@@ -1,0 +1,15 @@
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    margin: 0;
+}
+#mula-canvas {
+    --aspect-ratio: calc(16/9);
+    margin: auto;
+    width: min(100vw, calc(100vh * var(--aspect-ratio)));
+    height: min(calc(100vw / var(--aspect-ratio)), 100vh);
+}
