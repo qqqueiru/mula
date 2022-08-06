@@ -7,13 +7,7 @@ const inputs = {
     exit: false,
 }
 const gameState = {
-    mula: {
-        x: 150,
-        vx: 0,  // Se permiten velocidades entre -5 y 5
-        boundsX: [100, 700],
-        maxSpeed: 10,
-        speedIncrement: 2,
-    },
+    mula: new Mula(150, 900),
     apples: [],
     difficulty: 0,
 };
@@ -51,33 +45,14 @@ function readInputs() {
 }
 function updateState() {
     if (inputs.left) {
-        if (gameState.mula.vx > -gameState.mula.maxSpeed)
-        {
-            gameState.mula.vx -= gameState.mula.speedIncrement;
-        }
+        gameState.mula.commandToLeft();
         inputs.left = false;
     }
     if (inputs.right) {
-        if (gameState.mula.vx <= gameState.mula.maxSpeed)
-        {
-            gameState.mula.vx += gameState.mula.speedIncrement;
-        }
+        gameState.mula.commandToRight();
         inputs.right = false;
     }
-
-
-    if (gameState.mula.x >= gameState.mula.boundsX[0] &&
-    gameState.mula.x <= gameState.mula.boundsX[1]) {
-        gameState.mula.x += gameState.mula.vx;
-    }
-
-    if (gameState.mula.x < gameState.mula.boundsX[0]) {
-        gameState.mula.x = gameState.mula.boundsX[0];
-    }
-
-    if (gameState.mula.x > gameState.mula.boundsX[1]) {
-        gameState.mula.x = gameState.mula.boundsX[1];
-    }
+    gameState.mula.updatePos();
 }
 function draw() {
     const canvas = document.getElementById("mula-canvas");
@@ -107,18 +82,12 @@ function draw() {
     // Elipse de la mula
     {
         ctx.beginPath();
-        const x = gameState.mula.x;
-        const y = 500;
-        const a = 120;
-        const b = 60;
+        const x = gameState.mula.boundingEllipse.x;
+        const y = gameState.mula.boundingEllipse.y;
+        const a = gameState.mula.boundingEllipse.a;
+        const b = gameState.mula.boundingEllipse.b;
         ctx.ellipse(x, y, a, b, 0, 0, 2 * Math.PI);
         ctx.stroke();
-
-        const distanceToEllipse = (x-600)*(x-600)/(a*a) + (y-250)*(y-250)/(b*b);
-        if (distanceToEllipse <= 1) {
-            alert("La mula ha tocado el punto...");
-            return;
-        }
     }
 }
 function loop() {
