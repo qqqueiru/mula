@@ -65,9 +65,19 @@ function updateState() {
     }
 
     // Gestión de los objetos en caída libre.
+    const widthPercentageFallingItems = 0.7;
+    const startPercentageFallingItems = 0.05;
+    const heightPercentageFallingItems = 0.05;
+    const minSpeed = 2;
+    const rangeSpeed = 5
     gameState.framesUntilNextFallingItem--;
     if (gameState.framesUntilNextFallingItem <= 0) {
-        const fallingItemTest = new FallingItem(600 + Math.random() * 600, 150 + Math.random() * 30, 4, ctx);
+        const fallingItemTest = new FallingItem(
+            (canvas.width - widthPercentageFallingItems * canvas.width) / 2 + Math.random() * widthPercentageFallingItems * canvas.width,
+            startPercentageFallingItems * canvas.height + Math.random() * heightPercentageFallingItems * canvas.height,
+            minSpeed + Math.random() * rangeSpeed,
+            ctx
+        );
         gameState.fallingItems.push(fallingItemTest);
         gameState.framesUntilNextFallingItem = 60;
     }
