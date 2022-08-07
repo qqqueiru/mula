@@ -9,12 +9,14 @@ class FallingItem {
         this.vy = vy;  // Siempre positivo
         this.ctx = ctx;
         this.canBeDeleted = false;
+        this.fallen = false;
     }
     updatePos() {
         this.y += this.vy;
 
         if (Math.abs(this.y) >= this.maxY) {
             this.canBeDeleted = true;
+            this.fallen = true;
         }
     }
     getPoint() {
