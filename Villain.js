@@ -17,6 +17,7 @@ class Villain {
         this.vx = this.allowedSpeeds[0];
         this.framesUntilNextSpeedChange = 100;
         this.framesUntilNextItemDrop = 100;
+        this.framesUntilNextDropHiatus = 1000;
         this.ctx = ctx;
     }
 
@@ -32,7 +33,6 @@ class Villain {
         this.vx = this.allowedSpeeds[parseInt(Math.random() * this.allowedSpeeds.length)];
     }
 
-    // TODO hacer una pausa en la descarga de objetos
     update() {
         this.framesUntilNextSpeedChange--;
         if (this.framesUntilNextSpeedChange <= 0) {
@@ -45,7 +45,14 @@ class Villain {
         if (this.framesUntilNextItemDrop <= 0) {
             const vy = 8 + Math.random() * 2;
             fallingItem = new FallingItem(this.x, this.y, vy, this.ctx);
-            this.framesUntilNextItemDrop = 50 + Math.random() * 30;
+            this.framesUntilNextItemDrop = 15 + Math.random() * 30;
+        }
+
+        // Pausa en la descarga de objetos
+        this.framesUntilNextDropHiatus--;
+        if (this.framesUntilNextDropHiatus <= 0) {
+            this.framesUntilNextItemDrop = 300;
+            this.framesUntilNextDropHiatus = 2000 + Math.random() * 500;
         }
 
         this.x += this.vx;
