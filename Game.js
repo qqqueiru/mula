@@ -18,6 +18,11 @@ const gameState = {
     framesUntilNextFallingItem: 60,
 };
 
+// TODO Rehabilitar en producción
+// window.onbeforeunload = function() {
+//     return "MULA";
+// };
+
 window.addEventListener("keydown", (event) => {
     if (event.keyCode == 70 || event.keyCode == 37)  // F or "ArrowLeft"
     {
