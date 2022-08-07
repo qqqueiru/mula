@@ -3,7 +3,16 @@ class Villain {
         this.xLimits = [300, 1620];
         this.x = this.xLimits[1];
         this.y = undefined;  // Lo calculamos luego según los coeficientes de la trayectoria
-        this.yCurveCoeffs = [0, 0, 100];  // Coeficientes de una curva polinomial tal que y(x) = this.yCurveCoeffs[0] * x^2 + this.yCurveCoeffs[1] * x + this.yCurveCoefs[2] ...
+        {
+            // Parabola: y = A*x^2 + B*x + C
+            const a = 0.0001;
+            const xOffset = 1920 * 0.6;
+            const h = 300;
+            const A = a;
+            const B = - 2 * a * xOffset;
+            const C = a * xOffset + h;
+            this.yCurveCoeffs = [A, B, C];  // Coeficientes de una curva polinomial tal que y(x) = this.yCurveCoeffs[0] * x^2 + this.yCurveCoeffs[1] * x + this.yCurveCoefs[2] ...
+        }
         this.allowedSpeeds = [-7, 0, 7];
         this.vx = this.allowedSpeeds[0];
         this.framesUntilNextSpeedChange = 100;
