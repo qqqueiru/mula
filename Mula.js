@@ -11,8 +11,8 @@ class Ellipse {
     }
     isPointInsideEllipse(x, y) {
         const distance =
-            (this.xCenter - x) * (this.xCenter - x) / (this.a * this.a) +
-            (this.yCenter - y) * (this.yCenter - y) / (this.b * this.b);
+            (this.x - x) * (this.x - x) / (this.a * this.a) +
+            (this.y - y) * (this.y - y) / (this.b * this.b);
         return distance <= 1;
     }
     setCenter(newX, newY) {

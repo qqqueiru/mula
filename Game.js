@@ -76,6 +76,13 @@ function updateState() {
 
     // Eliminación de objetos que se pueden eliminar
     for (let i = (gameState.fallingItems.length - 1); i >= 0; --i) {
+        [x, y] = gameState.fallingItems[i].getPoint();
+        const isInside = gameState.mula.catchesGoody(x, y);
+        if (isInside) {
+            gameState.fallingItems[i].canBeDeleted = true;
+            gameState.score++;
+        }
+
         if (gameState.fallingItems[i].canBeDeleted) {
             gameState.fallingItems.splice(i, 1);
         }
