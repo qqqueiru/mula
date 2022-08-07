@@ -43,7 +43,7 @@ class Villain {
         let fallingItem;
         this.framesUntilNextItemDrop--;
         if (this.framesUntilNextItemDrop <= 0) {
-            const vy = 2 + Math.random() * 5;
+            const vy = 8 + Math.random() * 2;
             fallingItem = new FallingItem(this.x, this.y, vy, this.ctx);
             this.framesUntilNextItemDrop = 50 + Math.random() * 30;
         }

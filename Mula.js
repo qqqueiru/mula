@@ -36,22 +36,24 @@ class Mula {
         this.ctx = ctx;
         this.vx = 0;  // Se permiten velocidades entre -5 y 5
         this.xLimits = [100, 1820];
-        this.maxSpeed = 10;
-        this.speedIncrement = 2;
+        this.maxSpeed = 20;
+        this.speedIncrement = 5;
         this.goodBoundingEllipse = new Ellipse(x, y, 200, 100, ctx);
     }
 
     commandToLeft() {
-        if (this.vx > -this.maxSpeed)
+        this.vx -= this.speedIncrement;
+        if (this.vx < -this.maxSpeed)
         {
-            this.vx -= this.speedIncrement;
+            this.vx = -this.maxSpeed;
         }
     }
 
     commandToRight() {
-        if (this.vx <= this.maxSpeed)
+        this.vx += this.speedIncrement;
+        if (this.vx > this.maxSpeed)
         {
-            this.vx += this.speedIncrement;
+            this.vx = this.maxSpeed;
         }
     }
 
