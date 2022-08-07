@@ -102,6 +102,11 @@ function draw() {
     for (let i = 0; i < gameState.fallingItems.length; ++i) {
         gameState.fallingItems[i].drawDebugPoint();
     }
+
+
+    ctx.font = "60px Arial";
+    ctx.fillStyle = "rgb(150, 0, 0)";
+    ctx.fillText(`${gameState.score}`, 1800, 80);
 }
 function loop() {
     readInputs();
