@@ -4,7 +4,7 @@ html, body {
 body {
     display: flex;
     align-items: center;
-    background-color: black;
+    background-color: rgb(58, 58, 58);
     margin: 0;
 }
 #mula-canvas {

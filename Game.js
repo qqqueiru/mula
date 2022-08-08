@@ -1,21 +1,33 @@
 const canvas = document.getElementById("mula-canvas");
 const ctx = canvas.getContext("2d");
 
-const GameScreens = {
-	StartMenu: 0,
-	Play: 1,
-	GameOver: 2,
-}
+// const GameScreens = {
+// 	StartMenu: 0,
+// 	Play: 1,
+// 	GameOver: 2,
+// }
+
+// const GameOverOptions = {
+//     Restart: 0,
+//     Help: 1,
+//     About: 2,
+// }
 
 const inputs = {
+    up: false,
+    down: false,
     left: false,
     right: false,
+    enter: false,
+    exit: false,
+    upResetted: true,
+    downResetted: true,
     leftResetted: true,
     rightResetted: true,
-    start: false,
-    exit: false,
+    enterResetted: true,
+    exitResetted: true,
 }
-let gameState;
+let gameState;  // TODO trasladar a la pantalla 
 function resetGameState() {
     gameState = {
         mula: new Mula(300, 900, ctx),
@@ -23,9 +35,17 @@ function resetGameState() {
         fallingItems: [],
         difficulty: 0,
         score: 0,
-        screen: GameScreens.Play,
+        // screen: GameScreens.Play,
+        // gameOverMenu: new Menu(),
+        // gameOverOption: GameOverOptions.Restart,
     }
 }
+
+GameScreen.inputs = inputs;
+GameScreen.ctx = ctx;
+GameScreen.currentScreen = new PressAnyKey();
+GameScreen.width = canvas.width;
+GameScreen.height = canvas.height;
 
 
 // TODO Rehabilitar en producción
@@ -34,30 +54,52 @@ function resetGameState() {
 // };
 
 window.addEventListener("keydown", (event) => {
-    if (event.keyCode == 70 || event.keyCode == 37)  // F or "ArrowLeft"
+    if (event.key == "ArrowLeft")
     {
         if (inputs.leftResetted) {
             inputs.left = true;
             inputs.leftResetted = false;
         }
     }
-    if (event.keyCode == 74 || event.keyCode == 39)  // J or "ArrowRight"
+    if (event.key == "ArrowRight")
     {
         if (inputs.rightResetted) {
             inputs.right = true;
             inputs.rightResetted = false;
         }
     }
+    if (event.key == "ArrowUp")
+    {
+        if (inputs.upResetted) {
+            inputs.up = true;
+            inputs.upResetted = false;
+        }
+    }
+    if (event.key == "ArrowDown")
+    {
+        if (inputs.downResetted) {
+            inputs.down = true;
+            inputs.downResetted = false;
+        }
+    }
 });
 
 window.addEventListener("keyup", (event) => {
-    if (event.keyCode == 70 || event.keyCode == 37)  // F or "ArrowLeft"
+    if (event.key == "ArrowLeft")
     {
         inputs.leftResetted = true;
     }
-    if (event.keyCode == 74 || event.keyCode == 39)  // J or "ArrowRight"
+    if (event.key == "ArrowRight")
     {
         inputs.rightResetted = true;
+    }
+    if (event.key == "ArrowUp")
+    {
+        inputs.upResetted = true;
+    }
+    if (event.key == "ArrowDown")
+    {
+        inputs.downResetted = true;
     }
 });
 
@@ -104,6 +146,27 @@ function updatePlay() {
     }
 }
 
+function updateGameOver() {
+    if (inputs.up) {
+        if (gameState.game)
+        gameState.gameOverOption--;
+        if (gameState.gameOverOption < 0) {
+            gameState.gameOverOption = Object.keys(GameOverOptions).length - 1;
+        }
+        inputs.up = false;
+    }
+    if (inputs.down) {
+        gameState.gameOverOption++;
+        if (gameState.gameOverOption > (Object.keys(GameOverOptions).length - 1)) {
+            gameState.gameOverOption = 0;
+        }
+        inputs.down = false;
+    }
+    if (inputs.enter) {
+
+    }
+}
+
 function updateState() {
     switch (gameState.screen) {
         case (GameScreens.StartMenu): {
@@ -115,7 +178,7 @@ function updateState() {
             break;
         }
         case (GameScreens.GameOver): {
-            // TODO
+            updateGameOver();
             break;
         }
     }
@@ -149,17 +212,22 @@ function draw() {
         ctx.fillStyle = "rgb(255, 255, 255)";
         ctx.fill();
         ctx.fillStyle = "rgb(0, 0, 0)";
+        ctx.textAlign = "center";
         ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
     }
 }
 function loop() {
-    readInputs();
-    updateState();
-    draw();
+    // readInputs();
+    // updateState();
+    // draw();
+
+    GameScreen.currentScreen.runIteration();
+
     window.requestAnimationFrame(loop);
 }
 function init() {
     resetGameState();
     window.requestAnimationFrame(loop);
+    // setInterval(loop, 1000 / 60);
 }
 init();
