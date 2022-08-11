@@ -44,8 +44,7 @@ class Play extends GameScreen {
             }
     
             if (this.state.fallingItems[i].fallen) {
-                // GameScreen.currentScreen = new GameOver();
-                alert("GAME OVER, PERO CONTINÚA...")
+                GameScreen.currentScreen = new GameOver();
             }
     
             if (this.state.fallingItems[i].canBeDeleted) {
@@ -70,21 +69,8 @@ class Play extends GameScreen {
             this.state.fallingItems[i].drawDebugPoint();
         }
     
-    
         GameScreen.ctx.font = "60px Arial";
         GameScreen.ctx.fillStyle = "rgb(150, 0, 0)";
         GameScreen.ctx.fillText(`${this.state.score}`, 1800, 80);
-    
-        // if (gameState.screen == GameScreens.GameOver) {
-        //     ctx.rect(
-        //         canvas.width / 4, canvas.height / 4,
-        //         canvas.width / 2, canvas.height / 2
-        //     );
-        //     ctx.fillStyle = "rgb(255, 255, 255)";
-        //     ctx.fill();
-        //     ctx.fillStyle = "rgb(0, 0, 0)";
-        //     ctx.textAlign = "center";
-        //     ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
-        // }
     }
 }

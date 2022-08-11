@@ -86,6 +86,13 @@ window.addEventListener("keydown", (event) => {
             inputs.downResetted = false;
         }
     }
+    if (event.key == "Enter")
+    {
+        if (inputs.enterResetted) {
+            inputs.enter = true;
+            inputs.enterResetted = false;
+        }
+    }
 });
 
 window.addEventListener("keyup", (event) => {
@@ -105,6 +112,10 @@ window.addEventListener("keyup", (event) => {
     if (event.key == "ArrowDown")
     {
         inputs.downResetted = true;
+    }
+    if (event.key == "Enter")
+    {
+        inputs.enterResetted = true;
     }
 });
 
