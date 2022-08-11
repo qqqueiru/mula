@@ -5,15 +5,18 @@ class PressAnyKey extends GameScreen {
     }
 
     handleInputs() {
-        
+
     }
 
     update() {
-
+        if (inputs.anyKey) {
+            GameScreen.currentScreen = new Play();
+            inputs.anyKey = false;
+        }
     }
 
     draw() {
-        ctx.beginPath();
+        GameScreen.ctx.beginPath();
 
         GameScreen.ctx.clearRect(0, 0, GameScreen.width, GameScreen.height);
         GameScreen.ctx.rect(0, 0, GameScreen.width, GameScreen.height);
