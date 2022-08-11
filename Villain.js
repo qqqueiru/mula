@@ -13,7 +13,7 @@ class Villain {
             const C = a * xOffset + h;
             this.yCurveCoeffs = [A, B, C];  // Coeficientes de una curva polinomial tal que y(x) = this.yCurveCoeffs[0] * x^2 + this.yCurveCoeffs[1] * x + this.yCurveCoefs[2] ...
         }
-        this.allowedSpeeds = [-7, 0, 7];
+        this.allowedSpeeds = [-10, -5, 0, 5, 10];
         this.vx = this.allowedSpeeds[0];
         this.framesUntilNextSpeedChange = 100;
         this.framesUntilNextItemDrop = 100;
@@ -43,7 +43,7 @@ class Villain {
         let fallingItem;
         this.framesUntilNextItemDrop--;
         if (this.framesUntilNextItemDrop <= 0) {
-            const vy = 8 + Math.random() * 2;
+            const vy = 6 + Math.random() * 4;
             fallingItem = new FallingItem(this.x, this.y, vy, this.ctx);
             this.framesUntilNextItemDrop = 15 + Math.random() * 30;
         }
