@@ -34,7 +34,7 @@ class Mula {
         this.x = x;
         this.y = y;
         this.ctx = ctx;
-        this.vx = 0;  // Se permiten velocidades entre -5 y 5
+        this.vx = 0;  // Se permiten velocidades entre -this.maxSpeed y this.maxSpeed
         this.xLimits = [100, 1820];
         this.maxSpeed = 20;
         this.speedIncrement = 5;
