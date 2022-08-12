@@ -15,6 +15,28 @@ GameScreen.height = canvas.height;
 //     return "MULA";
 // };
 
+// Desaparición del cursor cuando está inactivo sobre el canvas
+{
+    let mouseTimer = null;
+    let cursorVisible = true;
+    function disappearCursor() {
+        mouseTimer = null;
+        canvas.style.cursor = "none";
+        cursorVisible = false;
+    }
+    canvas.onmousemove = function() {
+        if (mouseTimer) {
+            clearTimeout(mouseTimer);
+        }
+        if (!cursorVisible) {
+            canvas.style.cursor = "default";
+            cursorVisible = true;
+        }
+        mouseTimer = setTimeout(disappearCursor, 2500);
+    };
+}
+
+
 window.addEventListener("keydown", (event) => {
     if (inputs.has(event.key)) {
         const input = inputs.get(event.key);

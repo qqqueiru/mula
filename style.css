@@ -12,5 +12,4 @@ body {
     margin: auto;
     width: min(100vw, calc(100vh * var(--aspect-ratio)));
     height: min(calc(100vw / var(--aspect-ratio)), 100vh);
-    cursor: none;
 }
