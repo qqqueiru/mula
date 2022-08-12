@@ -42,7 +42,7 @@ class Play extends GameScreen {
             }
     
             if (this.state.fallingItems[i].fallen) {
-                GameScreen.currentScreen = new GameOver();
+                GameScreen.currentScreen = new GameOver(this.state.score);
             }
     
             if (this.state.fallingItems[i].canBeDeleted) {
