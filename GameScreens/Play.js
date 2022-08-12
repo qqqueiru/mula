@@ -15,13 +15,11 @@ class Play extends GameScreen {
     }
 
     update() {
-        if (GameScreen.inputs.left) {
+        if (GameScreen.inputs.get("ArrowLeft")?.consumeIfActivated()) {
             this.state.mula.commandToLeft();
-            GameScreen.inputs.left = false;
         }
-        if (GameScreen.inputs.right) {
+        if (GameScreen.inputs.get("ArrowRight")?.consumeIfActivated()) {
             this.state.mula.commandToRight();
-            GameScreen.inputs.right = false;
         }
     
         // Actualización de entidades

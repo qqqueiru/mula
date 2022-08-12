@@ -1,22 +1,7 @@
 const canvas = document.getElementById("mula-canvas");
 const ctx = canvas.getContext("2d");
 
-const inputs = {
-    up: false,
-    down: false,
-    left: false,
-    right: false,
-    enter: false,
-    exit: false,
-    anyKey: false,
-    upResetted: true,
-    downResetted: true,
-    leftResetted: true,
-    rightResetted: true,
-    enterResetted: true,
-    exitResetted: true,
-    anyKeyResetted: true,
-}
+const inputs = new Map();
 
 GameScreen.inputs = inputs;
 GameScreen.ctx = ctx;
@@ -31,67 +16,27 @@ GameScreen.height = canvas.height;
 // };
 
 window.addEventListener("keydown", (event) => {
-    inputs.anyKey = true;
-    inputs.anyKeyResetted = false;
-    if (event.key == "ArrowLeft")
-    {
-        if (inputs.leftResetted) {
-            inputs.left = true;
-            inputs.leftResetted = false;
+    if (inputs.has(event.key)) {
+        const input = inputs.get(event.key);
+        if (input.isResetted()) {
+            input.activate();
         }
+    } else {
+        inputs.set(event.key, new Input());
     }
-    if (event.key == "ArrowRight")
-    {
-        if (inputs.rightResetted) {
-            inputs.right = true;
-            inputs.rightResetted = false;
+
+    if (inputs.has("AnyKey")) {
+        if (Input.anyKey.isResetted()) {
+            Input.anyKey.activate();
         }
-    }
-    if (event.key == "ArrowUp")
-    {
-        if (inputs.upResetted) {
-            inputs.up = true;
-            inputs.upResetted = false;
-        }
-    }
-    if (event.key == "ArrowDown")
-    {
-        if (inputs.downResetted) {
-            inputs.down = true;
-            inputs.downResetted = false;
-        }
-    }
-    if (event.key == "Enter")
-    {
-        if (inputs.enterResetted) {
-            inputs.enter = true;
-            inputs.enterResetted = false;
-        }
+    } else {
+        inputs.set("AnyKey", Input.anyKey);
     }
 });
 
 window.addEventListener("keyup", (event) => {
-    inputs.anyKeyResetted = false;
-    if (event.key == "ArrowLeft")
-    {
-        inputs.leftResetted = true;
-    }
-    if (event.key == "ArrowRight")
-    {
-        inputs.rightResetted = true;
-    }
-    if (event.key == "ArrowUp")
-    {
-        inputs.upResetted = true;
-    }
-    if (event.key == "ArrowDown")
-    {
-        inputs.downResetted = true;
-    }
-    if (event.key == "Enter")
-    {
-        inputs.enterResetted = true;
-    }
+    inputs.get(event.key).reset();
+    inputs.get("AnyKey").reset();
 });
 
 function loop() {

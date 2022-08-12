@@ -8,9 +8,8 @@ class GameOver extends GameScreen {
     }
 
     update() {
-        if (GameScreen.inputs.enter) {
+        if (GameScreen.inputs.get("Enter")?.consumeIfActivated()) {
             GameScreen.currentScreen = new Play();
-            GameScreen.inputs.enter = false;
         }
 
 
