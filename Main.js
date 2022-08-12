@@ -57,8 +57,8 @@ window.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("keyup", (event) => {
-    inputs.get(event.key).reset();
-    inputs.get("AnyKey").reset();
+    inputs.get(event.key)?.reset();
+    inputs.get("AnyKey")?.reset();
 });
 
 function loop() {
