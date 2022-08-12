@@ -9,6 +9,7 @@ class Menu extends GameScreen {
 
     update() {
         // TODO
+        GameScreen.currentScreen = new Play();
     }
 
     draw() {

@@ -10,7 +10,7 @@ class PressAnyKey extends GameScreen {
 
     update() {
         if (inputs.anyKey) {
-            GameScreen.currentScreen = new Play();
+            GameScreen.currentScreen = new Menu();
             inputs.anyKey = false;
         }
     }

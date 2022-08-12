@@ -12,6 +12,25 @@ class GameOver extends GameScreen {
             GameScreen.currentScreen = new Play();
             GameScreen.inputs.enter = false;
         }
+
+
+        // if (inputs.up) {
+        //     if (gameState.game)
+        //     gameState.gameOverOption--;
+        //     if (gameState.gameOverOption < 0) {
+        //         gameState.gameOverOption = Object.keys(GameOverOptions).length - 1;
+        //     }
+        //     inputs.up = false;
+        // }
+        // if (inputs.down) {
+        //     gameState.gameOverOption++;
+        //     if (gameState.gameOverOption > (Object.keys(GameOverOptions).length - 1)) {
+        //         gameState.gameOverOption = 0;
+        //     }
+        //     inputs.down = false;
+        // }
+        // if (inputs.enter) {
+        // }
     }
 
     draw() {    

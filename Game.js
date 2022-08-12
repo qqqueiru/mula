@@ -1,18 +1,6 @@
 const canvas = document.getElementById("mula-canvas");
 const ctx = canvas.getContext("2d");
 
-// const GameScreens = {
-// 	StartMenu: 0,
-// 	Play: 1,
-// 	GameOver: 2,
-// }
-
-// const GameOverOptions = {
-//     Restart: 0,
-//     Help: 1,
-//     About: 2,
-// }
-
 const inputs = {
     up: false,
     down: false,
@@ -28,19 +16,6 @@ const inputs = {
     enterResetted: true,
     exitResetted: true,
     anyKeyResetted: true,
-}
-let gameState;  // TODO trasladar a la pantalla 
-function resetGameState() {
-    gameState = {
-        mula: new Mula(300, 900, ctx),
-        villain: new Villain(ctx),
-        fallingItems: [],
-        difficulty: 0,
-        score: 0,
-        // screen: GameScreens.Play,
-        // gameOverMenu: new Menu(),
-        // gameOverOption: GameOverOptions.Restart,
-    }
 }
 
 GameScreen.inputs = inputs;
@@ -119,65 +94,11 @@ window.addEventListener("keyup", (event) => {
     }
 });
 
-function readInputs() {
-    // TODO borrar
-}
-
-function updatePlay() {
-
-}
-
-function updateGameOver() {
-    if (inputs.up) {
-        if (gameState.game)
-        gameState.gameOverOption--;
-        if (gameState.gameOverOption < 0) {
-            gameState.gameOverOption = Object.keys(GameOverOptions).length - 1;
-        }
-        inputs.up = false;
-    }
-    if (inputs.down) {
-        gameState.gameOverOption++;
-        if (gameState.gameOverOption > (Object.keys(GameOverOptions).length - 1)) {
-            gameState.gameOverOption = 0;
-        }
-        inputs.down = false;
-    }
-    if (inputs.enter) {
-
-    }
-}
-
-function updateState() {
-    switch (gameState.screen) {
-        case (GameScreens.StartMenu): {
-            // TODO
-            break;
-        }
-        case (GameScreens.Play): {
-            updatePlay();
-            break;
-        }
-        case (GameScreens.GameOver): {
-            updateGameOver();
-            break;
-        }
-    }
-}
-
-function draw() {
-}
 function loop() {
-    // readInputs();
-    // updateState();
-    // draw();
-
     GameScreen.currentScreen.runIteration();
-
     window.requestAnimationFrame(loop);
 }
 function init() {
-    resetGameState();
     window.requestAnimationFrame(loop);
     // setInterval(loop, 1000 / 60);
 }
