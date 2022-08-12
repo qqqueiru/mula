@@ -42,6 +42,9 @@ window.addEventListener("keyup", (event) => {
 function loop() {
     GameScreen.currentScreen.runIteration();
     window.requestAnimationFrame(loop);
+    for (const input of GameScreen.inputs.values()) {
+        input.consumeIfActivated();  // Si la iteración actual no consumió el input, hay que consumirlo para que no se malinterprete en la próxima iteración
+    }
 }
 function init() {
     window.requestAnimationFrame(loop);
