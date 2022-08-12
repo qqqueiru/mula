@@ -1,4 +1,4 @@
-class Menu extends GameScreen {
+class StartMenu extends GameScreen {
     constructor() {
         super();
     }

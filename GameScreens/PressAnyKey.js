@@ -10,7 +10,7 @@ class PressAnyKey extends GameScreen {
 
     update() {
         if (GameScreen.inputs.get("AnyKey")?.consumeIfActivated()) {
-            GameScreen.currentScreen = new Menu();
+            GameScreen.currentScreen = new StartMenu();
         }
     }
 
