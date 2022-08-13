@@ -66,7 +66,7 @@ class GameOver extends GameScreen {
                     },
                 ],
             },
-        }
+        };
     }
 
     #restartGame() {
