@@ -38,7 +38,9 @@ class Mula {
         this.xLimits = [100, 1820];
         this.maxSpeed = 20;
         this.speedIncrement = 5;
-        this.goodBoundingEllipse = new Ellipse(x, y, 200, 100, ctx);
+        this.goodBoundingEllipse = new Ellipse(x, y, 210, 140, ctx);  // 200, 100 originalmente
+        this.img = new Image();  // TODO crear clase image loader para asegurarse que cargan antes de ejecutar el juego...
+        this.img.src = "./img/test_mula.png";
     }
 
     commandToLeft() {
@@ -75,6 +77,17 @@ class Mula {
 
     catchesGoody(x, y) {
         return this.goodBoundingEllipse.isPointInsideEllipse(x, y);
+    }
+
+    draw() {
+        this.ctx.beginPath();
+        const scale = 2;
+        const w = this.img.width * scale;
+        const h = this.img.height * scale;
+        const x = this.x - w / 2;
+        const y = this.y - h / 2;
+
+        this.ctx.drawImage(this.img, x, y, w, h);
     }
 
     drawDebugGoodBounding() {
