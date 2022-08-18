@@ -5,7 +5,7 @@ const inputs = new Map();
 
 GameScreen.inputs = inputs;
 GameScreen.ctx = ctx;
-GameScreen.currentScreen = new PressAnyKey();
+GameScreen.currentScreen = new LoadingScreen();
 GameScreen.width = canvas.width;
 GameScreen.height = canvas.height;
 
