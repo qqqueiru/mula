@@ -1,12 +1,12 @@
 class ImageManager {
     constructor() {
     }
-    loadImage(id, src) {
+    static imgs = new Map();
+    static loadImage(id, src) {
         const img = new Image();
         img.src = src;
-        imgs.set(id, img);
+        ImageManager.imgs.set(id, img);
     }
-    static imgs = new Map();
     static imgsLoaded() {
         const imgsCount = ImageManager.imgs.size;
         if (imgsCount == 0) {
@@ -23,6 +23,7 @@ class ImageManager {
     }
     static loadImages() {
         // TODO hacer aquí la carga de todas las imágenes
+        ImageManager.loadImage("mula_sprite_test", "./img/mula_sprite_test.png");
     }
 
 }
