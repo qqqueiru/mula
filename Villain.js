@@ -19,6 +19,7 @@ class Villain {
         this.framesUntilNextItemDrop = 100;
         this.framesUntilNextDropHiatus = 1000;
         this.ctx = ctx;
+        this.spriteTest = new AnimatedSprite("villain_sprite_test", 2, 4, 2, 10, ctx);
     }
 
     #computeY(x) {
@@ -76,5 +77,10 @@ class Villain {
             this.ctx.fillStyle = 'rgb(0, 0, 0)';
             this.ctx.fill();
         }
+    }
+
+    draw() {
+        this.ctx.beginPath();
+        this.spriteTest.draw(this.x, this.y);
     }
 }

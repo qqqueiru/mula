@@ -63,7 +63,8 @@ class Play extends GameScreen {
     
         this.state.mula.draw();
         // this.staste.mula.drawDebugGoodBounding();
-        this.state.villain.drawDebugPoint();
+        this.state.villain.draw();
+        // this.state.villain.drawDebugPoint();
         for (let i = 0; i < this.state.fallingItems.length; ++i) {
             this.state.fallingItems[i].drawDebugPoint();
         }
