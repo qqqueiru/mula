@@ -39,7 +39,7 @@ class Mula {
         this.maxSpeed = 20;
         this.speedIncrement = 5;
         this.goodBoundingEllipse = new Ellipse(x, y, 210, 140, ctx);  // 200, 100 originalmente
-        this.spriteTest = new AnimatedSprite("mula_sprite_test", 2, 3, 2, 1, ctx);
+        this.spriteTest = new AnimatedSprite("mula_sprite_test", 2, 3, 2, 40, ctx);
     }
 
     commandToLeft() {

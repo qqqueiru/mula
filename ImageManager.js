@@ -14,7 +14,7 @@ class ImageManager {
         }
         let imgsLoaded = 0;
         for (const [id, img] of ImageManager.imgs) {
-            imgsLoaded += img.complete();
+            imgsLoaded += img.complete;
         }
         return imgsLoaded / imgsCount;  // Número entre 0 y 1 que representa el progreso de carga
     }

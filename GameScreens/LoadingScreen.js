@@ -12,8 +12,8 @@ class LoadingScreen extends GameScreen {
     }
 
     update() {
-        // this.#progress = ImageManager.imgsLoaded();
-        this.#progress += 0.01;
+        this.#progress = ImageManager.imgsLoaded();
+        // this.#progress += 0.01;
         if (this.#progress >= 1) {
             GameScreen.currentScreen = new PressAnyKey();
         }

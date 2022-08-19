@@ -36,7 +36,7 @@ class AnimatedSprite {
         const totalSteps = totalFrames * this.#stepsPerFrame;
         const currentFrame = Math.floor(this.#currentStep / totalSteps * totalFrames);
         const currentRow = Math.floor(currentFrame / this.#cols);
-        const currentCol = Math.floor(currentFrame / this.#rows);
+        const currentCol = currentFrame % this.#cols;
 
         const sw = this.#img.width / this.#cols;
         const sh = this.#img.height / this.#rows;
