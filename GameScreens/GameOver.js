@@ -41,6 +41,14 @@ class GameOver extends GameScreen {
                         updateHandle: ()=>{this.#shareFacebook()},
                     },
                     {
+                        name: "LINKEDIN",
+                        updateHandle: ()=>{this.#shareLinkedin()},
+                    },
+                    {
+                        name: "PINTEREST",
+                        updateHandle: ()=>{this.#sharePinterest()},
+                    },
+                    {
                         name: "BACK",
                         updateHandle: ()=>{this.#backToMainMenu()},
                     },
@@ -86,11 +94,32 @@ class GameOver extends GameScreen {
     }
 
     #shareTwitter() {
-        alert("TODO SHARE TWITTER");
+        // https://www.sharelinkgenerator.com/
+        setTimeout(()=>{
+            const url = `https://twitter.com/intent/tweet?text=I%20scored%20${this.#score}%20points%20on%20Mula.%20LINK`;
+            window.open(url, '_blank').focus();
+        }, 100);
     }
 
     #shareFacebook() {
-        alert("TODO SHARE FACEBOOK");
+        setTimeout(()=>{
+            const url = `https://facebook.com`;
+            window.open(url, '_blank').focus();
+        }, 100);
+    }
+
+    #shareLinkedin() {
+        setTimeout(()=>{
+            const url = `https://linkedin.com`;
+            window.open(url, '_blank').focus();
+        }, 100);
+    }
+
+    #sharePinterest() {
+        setTimeout(()=>{
+            const url = `https://pinterest.com`;
+            window.open(url, '_blank').focus();
+        }, 100);
     }
 
     #backToMainMenu() {
@@ -126,13 +155,18 @@ class GameOver extends GameScreen {
         GameScreen.ctx.fillStyle = "rgb(0, 0, 0)";
         GameScreen.ctx.textAlign = "center";
         GameScreen.ctx.font = "bold 30px Arial";
-        const optionsHeight = 0.54;
+        const optionsHeight = 0.44;
         const optionsSpacing = 0.04;
         GameScreen.ctx.fillText("TWITTER", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 0));
         GameScreen.ctx.fillText("FACEBOOK", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 1));
-        GameScreen.ctx.fillText("BACK", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 2));
+        GameScreen.ctx.fillText("LINKEDIN", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 2));
+        GameScreen.ctx.fillText("PINTEREST", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 3));
+        GameScreen.ctx.fillText("BACK", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 6));
 
         // Rectangulito para indicar seleccion actual
+        if (currentOptionIndex > 3) {
+            currentOptionIndex = 6;
+        }
         GameScreen.ctx.beginPath();
         GameScreen.ctx.rect(
             GameScreen.width * 0.40, GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02),
