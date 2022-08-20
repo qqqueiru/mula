@@ -26,6 +26,8 @@ class ImageManager {
         ImageManager.loadImage("mula_sprite_test", "./img/mula_sprite_test.png");
         ImageManager.loadImage("villain_sprite_test", "./img/villain_sprite_test.png");
         ImageManager.loadImage("background_test", "./img/background_test.png");
+
+        ImageManager.loadImage("cebolla", "./img/cebolla.png");
     }
 
 }

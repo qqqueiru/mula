@@ -1,5 +1,6 @@
 const canvas = document.getElementById("mula-canvas");
 const ctx = canvas.getContext("2d");
+ctx.imageSmoothingEnabled = false;
 
 const inputs = new Map();
 

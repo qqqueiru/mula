@@ -66,11 +66,12 @@ class Play extends GameScreen {
         // ctx.stroke(p);
     
         this.state.mula.draw();
-        // this.staste.mula.drawDebugGoodBounding();
+        this.state.mula.drawDebugGoodBounding();
         this.state.villain.draw();
-        // this.state.villain.drawDebugPoint();
+        this.state.villain.drawDebugPoint();
         for (let i = 0; i < this.state.fallingItems.length; ++i) {
-            this.state.fallingItems[i].drawDebugPoint();
+            this.state.fallingItems[i].draw();
+            // this.state.fallingItems[i].drawDebugPoint();
         }
     
         GameScreen.ctx.font = "60px Arial";
