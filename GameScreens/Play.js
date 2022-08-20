@@ -6,7 +6,8 @@ class Play extends GameScreen {
             villain: new Villain(GameScreen.ctx),
             fallingItems: [],
             difficulty: 0,
-            score: 0,    
+            score: 0,
+            backgroundImgTest: ImageManager.getImage("background_test"),
         };
     }
 
@@ -53,10 +54,13 @@ class Play extends GameScreen {
 
     draw() {
         GameScreen.ctx.beginPath();
-        GameScreen.ctx.clearRect(0, 0, GameScreen.width, GameScreen.height);
-        GameScreen.ctx.rect(0, 0, GameScreen.width, GameScreen.height);
-        GameScreen.ctx.fillStyle = "rgb(150, 150, 150)";
-        GameScreen.ctx.fill();
+
+        GameScreen.ctx.drawImage(this.state.backgroundImgTest, 0, 0);
+
+        // GameScreen.ctx.clearRect(0, 0, GameScreen.width, GameScreen.height);
+        // GameScreen.ctx.rect(0, 0, GameScreen.width, GameScreen.height);
+        // GameScreen.ctx.fillStyle = "rgb(150, 150, 150)";
+        // GameScreen.ctx.fill();
     
         // const p = new Path2D('m 32.423215,101.64019 17.226952,-34.041938 40.65784,-0.107456 14.574913,33.595634 5.69533,-33.778278 9.57132,-29.303957 17.40239,18.23567 8.70119,-1.966633 L 119.79987,14.366847 103.67653,41.180492 43.336938,37.059475 19.922809,60.216901 41.754898,49.8471 Z');
         // ctx.stroke(p);
