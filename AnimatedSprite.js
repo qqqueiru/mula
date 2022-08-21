@@ -8,6 +8,7 @@ class AnimatedSprite {
     #currentStep;
     #stepsPerFrame;  // TODO ver si se pueden fijar los fps en 60
     #ctx;
+    #paused;
 
 //  Ejemplo de AnimatedSprite usando una imagen con 6 frames,
 //  en una imagen de 3 columnas por 2 filas:
@@ -23,12 +24,13 @@ class AnimatedSprite {
     constructor(imgId, scale, cols, rows, stepsPerFrame, ctx) {
         this.#imgId = imgId;
         this.#img = ImageManager.getImage(imgId);
-        this.#scale = scale;
+        this.#scale = scale;  // En este proyecto una escala de 4 parece quedar bien
         this.#cols = cols;
         this.#rows = rows;
         this.#currentStep = 0;
         this.#stepsPerFrame = stepsPerFrame;
         this.#ctx = ctx;
+        this.#paused = false;
     }
 
     draw(xCenter, yCenter) {
@@ -49,9 +51,24 @@ class AnimatedSprite {
 
         this.#ctx.drawImage(this.#img, sx, sy, sw, sh, dx, dy, dw, dh);
 
-        this.#currentStep++;
+        if (!this.#paused) {
+            this.#currentStep++;
+        }
         if (this.#currentStep >= totalSteps) {
             this.#currentStep = 0;
         }
+    }
+
+    setStepsPerFrame(stepsPerFrame) {
+        this.#currentStep = this.#currentStep * Math.floor(stepsPerFrame / this.#stepsPerFrame);
+        this.#stepsPerFrame = stepsPerFrame;
+    }
+
+    pause() {
+        this.#paused = true;
+    }
+
+    resume() {
+        this.#paused = false;
     }
 }

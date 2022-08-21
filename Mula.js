@@ -39,7 +39,30 @@ class Mula {
         this.maxSpeed = 20;
         this.speedIncrement = 5;
         this.goodBoundingEllipse = new Ellipse(x, y, 210, 140, ctx);  // 200, 100 originalmente
-        this.spriteTest = new AnimatedSprite("mula_sprite_test", 2, 3, 2, 40, ctx);
+        this.sprites = {
+            right: new AnimatedSprite("mula_sprite_animation_right", 4, 4, 3, -1, ctx),
+            left: new AnimatedSprite("mula_sprite_animation_left", 4, 4, 3, -1, ctx),
+        }
+        console.log(ctx);
+
+        this.sprites.right.pause();
+        this.sprites.left.pause();
+        this.currentSprite = "left";
+    }
+
+    #changeAnimation() {
+        if (this.vx == 0) {
+            this.sprites[this.currentSprite].pause();
+        } else {
+            const stepsPerFrame = 1 / Math.abs(this.vx) * 40;
+            this.sprites[this.currentSprite].setStepsPerFrame(stepsPerFrame);
+            this.sprites[this.currentSprite].resume();
+            if (this.vx > 0) {
+                this.currentSprite = "right";
+            } else {
+                this.currentSprite = "left";
+            }
+        }
     }
 
     commandToLeft() {
@@ -48,6 +71,7 @@ class Mula {
         {
             this.vx = -this.maxSpeed;
         }
+        this.#changeAnimation();
     }
 
     commandToRight() {
@@ -56,6 +80,7 @@ class Mula {
         {
             this.vx = this.maxSpeed;
         }
+        this.#changeAnimation();
     }
 
     updatePos() {
@@ -80,7 +105,7 @@ class Mula {
 
     draw() {
         this.ctx.beginPath();
-        this.spriteTest.draw(this.x, this.y);
+        this.sprites[this.currentSprite].draw(this.x, this.y);
     }
 
     drawDebugGoodBounding() {

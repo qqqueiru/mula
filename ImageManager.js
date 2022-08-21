@@ -24,6 +24,8 @@ class ImageManager {
     static loadImages() {
         // TODO hacer aquí la carga de todas las imágenes
         ImageManager.loadImage("mula_sprite_test", "./img/mula_sprite_test.png");
+        ImageManager.loadImage("mula_sprite_animation_right", "./img/mula_sprite_animation_right.png");
+        ImageManager.loadImage("mula_sprite_animation_left", "./img/mula_sprite_animation_left.png");
         ImageManager.loadImage("villain_sprite_test", "./img/villain_sprite_test.png");
         ImageManager.loadImage("background_test", "./img/background_test.png");
 
