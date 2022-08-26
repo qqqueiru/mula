@@ -43,25 +43,24 @@ class Mula {
             right: new AnimatedSprite("mula_sprite_animation_right", 4, 4, 3, -1, ctx),
             left: new AnimatedSprite("mula_sprite_animation_left", 4, 4, 3, -1, ctx),
         }
-        console.log(ctx);
 
         this.sprites.right.pause();
         this.sprites.left.pause();
-        this.currentSprite = "left";
+        this.currentSprite = "right";
     }
 
     #changeAnimation() {
         if (this.vx == 0) {
             this.sprites[this.currentSprite].pause();
         } else {
-            const stepsPerFrame = 1 / Math.abs(this.vx) * 40;
-            this.sprites[this.currentSprite].setStepsPerFrame(stepsPerFrame);
-            this.sprites[this.currentSprite].resume();
             if (this.vx > 0) {
                 this.currentSprite = "right";
             } else {
                 this.currentSprite = "left";
             }
+            const stepsPerFrame = 1 / Math.abs(this.vx) * 40;
+            this.sprites[this.currentSprite].setStepsPerFrame(stepsPerFrame);
+            this.sprites[this.currentSprite].resume();
         }
     }
 
