@@ -5,6 +5,7 @@ class LoadingScreen extends GameScreen {
         this.#progress = 0;
 
         ImageManager.loadImages();
+        AudioManager.loadAudios();
     }
 
     handleInputs() {
@@ -12,7 +13,7 @@ class LoadingScreen extends GameScreen {
     }
 
     update() {
-        this.#progress = ImageManager.imgsLoaded();
+        this.#progress = ImageManager.imgsLoaded() * 0.5 + AudioManager.audiosLoaded() * 0.5;
         // this.#progress += 0.01;
         if (this.#progress >= 1) {
             GameScreen.currentScreen = new PressAnyKey();

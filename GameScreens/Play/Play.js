@@ -9,6 +9,10 @@ class Play extends GameScreen {
             score: 0,
             backgroundImgTest: ImageManager.getImage("background_test"),
         };
+        this.backgroundMusic = AudioManager.getAudio("background_music_1");
+        this.backgroundMusic.loop = true;
+        this.backgroundMusic.currentTime = 0;
+        this.backgroundMusic.play();
     }
 
     handleInputs() {
@@ -17,10 +21,10 @@ class Play extends GameScreen {
 
     update() {
         if (GameScreen.inputs.get("ArrowLeft")?.consumeIfActivated()) {
-            this.state.mula.commandToLeft();
+            this.state.mula.commandToDirection("left");
         }
         if (GameScreen.inputs.get("ArrowRight")?.consumeIfActivated()) {
-            this.state.mula.commandToRight();
+            this.state.mula.commandToDirection("right");
         }
     
         // Actualización de entidades
@@ -44,6 +48,7 @@ class Play extends GameScreen {
     
             if (this.state.fallingItems[i].fallen) {
                 GameScreen.currentScreen = new GameOver(this.state.score);
+                this.backgroundMusic.pause();
             }
     
             if (this.state.fallingItems[i].canBeDeleted) {

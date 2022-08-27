@@ -64,20 +64,29 @@ class Mula {
         }
     }
 
-    commandToLeft() {
-        this.vx -= this.speedIncrement;
-        if (this.vx < -this.maxSpeed)
-        {
-            this.vx = -this.maxSpeed;
-        }
-        this.#changeAnimation();
+    #playCommandAudio() {
+        const newCommandAudio = new Audio();
+        newCommandAudio.src = AudioManager.getAudio("palmada").src;
+        newCommandAudio.play();
     }
 
-    commandToRight() {
-        this.vx += this.speedIncrement;
-        if (this.vx > this.maxSpeed)
-        {
-            this.vx = this.maxSpeed;
+    commandToDirection(direction) {
+        const oldVx = this.vx;
+        if (direction == "left") {
+            this.vx -= this.speedIncrement;
+            if (this.vx < -this.maxSpeed)
+            {
+                this.vx = -this.maxSpeed;
+            }
+        } else if (direction == "right") {
+            this.vx += this.speedIncrement;
+            if (this.vx > this.maxSpeed)
+            {
+                this.vx = this.maxSpeed;
+            }
+        }
+        if (this.vx != oldVx) {
+            this.#playCommandAudio();
         }
         this.#changeAnimation();
     }
