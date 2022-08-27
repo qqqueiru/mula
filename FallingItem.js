@@ -8,7 +8,7 @@ class FallingItem {
     constructor(x, y, vy, ctx = undefined) {
         this.x = x;
         this.y = y;  // Quizás en un principio convenga que todo caiga desde un mismo y
-        this.maxY = 1080;
+        this.maxY = 1080 + 100;
         this.vy = vy;  // Siempre positivo
         this.ctx = ctx;
         this.canBeDeleted = false;
@@ -22,7 +22,7 @@ class FallingItem {
     updatePos() {
         this.y += this.vy;
 
-        if (Math.abs(this.y) >= this.maxY) {
+        if (this.y >= this.maxY) {
             this.canBeDeleted = true;
             this.fallen = true;
         }
