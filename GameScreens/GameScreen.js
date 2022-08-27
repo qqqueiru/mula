@@ -21,7 +21,7 @@ class GameScreen {
     }
 
     runIteration() {
-        this.update();
         this.draw();
+        this.update();
     }
 }
