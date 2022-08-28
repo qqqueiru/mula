@@ -29,7 +29,9 @@ class ImageManager {
         ImageManager.loadImage("villain_sprite_test", "./img/villain_sprite_test.png");
         ImageManager.loadImage("background_test", "./img/background_test.png");
 
+        // Objetos en caída libre
         ImageManager.loadImage("cebolla", "./img/cebolla.png");
+        ImageManager.loadImage("pan", "./img/pan.png");
     }
 
 }
