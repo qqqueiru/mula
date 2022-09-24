@@ -32,6 +32,45 @@ class ImageManager {
         // Objetos en caída libre
         ImageManager.loadImage("cebolla", "./img/cebolla.png");
         ImageManager.loadImage("pan", "./img/pan.png");
+        // TODO por dibujar
+        // ImageManager.loadImage("botijo", "./img/botijo.png");
+        // ImageManager.loadImage("empanada", "./img/empanada.png");
+        // ImageManager.loadImage("tortilla", "./img/tortilla.png");
+        // ImageManager.loadImage("gamba", "./img/gamba.png");
+        // ImageManager.loadImage("pimiento", "./img/pimiento.png");
+        // ImageManager.loadImage("queso", "./img/queso.png");
+        // ImageManager.loadImage("morcilla", "./img/morcilla.png");
+        // ImageManager.loadImage("tomate", "./img/tomate.png");
+        // ImageManager.loadImage("aceite", "./img/aceite.png");
+        // ImageManager.loadImage("sardina", "./img/sardina.png");
+        // ImageManager.loadImage("fletan", "./img/fletan.png");
+        // ImageManager.loadImage("aceituna", "./img/aceituna.png");
+        // ImageManager.loadImage("pollo", "./img/pollo.png");
+        // ImageManager.loadImage("vieira", "./img/vieira.png");
+        // ImageManager.loadImage("pulpo", "./img/pulpo.png");
+        // ImageManager.loadImage("rosquilla", "./img/rosquilla.png");
+        // ImageManager.loadImage("churros", "./img/churros.png");
+        // ImageManager.loadImage("magdalena", "./img/magdalena.png");
+        // ImageManager.loadImage("ensaimada", "./img/ensaimada.png");
+        // ImageManager.loadImage("batido_cacao", "./img/batido_cacao.png");  // cacao leite
+        // ImageManager.loadImage("zumo", "./img/zumo.png");
+        // ImageManager.loadImage("langostino", "./img/langostino.png");
+        // ImageManager.loadImage("tableta_chocolate", "./img/tableta_chocolate.png");
+        // ImageManager.loadImage("cerezas", "./img/cerezas.png");
+        // ImageManager.loadImage("uvas", "./img/uvas.png");
+        // ImageManager.loadImage("vino", "./img/vino.png");
+        // ImageManager.loadImage("zanahoria", "./img/zanahoria.png");
+        // ImageManager.loadImage("platano", "./img/platano.png");
+        // ImageManager.loadImage("manzana", "./img/manzana.png");
+        // ImageManager.loadImage("melocoton", "./img/melocoton.png");
+        // ImageManager.loadImage("albondiga", "./img/albondiga.png");
+        // ImageManager.loadImage("croqueta", "./img/croqueta.png");
+        // ImageManager.loadImage("helado_palo", "./img/helado_palo.png");
+        // ImageManager.loadImage("helado_cucurucho", "./img/helado_cucurucho.png");
+        // ImageManager.loadImage("fresa", "./img/fresa.png");
+        // ImageManager.loadImage("melon", "./img/melon.png");
+        // ImageManager.loadImage("miel", "./img/miel.png");
+        // ImageManager.loadImage("percebe", "./img/percebe.png");
     }
 
 }
