@@ -24,11 +24,14 @@ class PressAnyKey extends GameScreen {
     
         this.t += 0.15;
         const fontSize = 50 + 5 * Math.sin(this.t);
-        GameScreen.ctx.font = `bold ${fontSize}px Arial`;
+        GameScreen.ctx.font = `bold ${fontSize}px SigmarOne`;
         GameScreen.ctx.textAlign = "center";
 
         GameScreen.ctx.fillStyle = "rgb(255, 255, 0)";
-        GameScreen.ctx.fillText(`PRESS ANY KEY`, GameScreen.width / 2, GameScreen.height * 0.8);
+        // GameScreen.ctx.strokeStyle = "rgb(255, 0, 0)";
+        // GameScreen.ctx.lineWidth = 1;
+        GameScreen.ctx.fillText(`PRESS ANY KEY`, GameScreen.width / 2, GameScreen.height * 0.5);
+        // GameScreen.ctx.strokeText(`PRESS ANY KEY`, GameScreen.width / 2, GameScreen.height * 0.5);
 
         // ctx.endPath();
     }

@@ -79,7 +79,7 @@ class Play extends GameScreen {
             // this.state.fallingItems[i].drawDebugPoint();
         }
     
-        GameScreen.ctx.font = "60px Arial";
+        GameScreen.ctx.font = "60px SigmarOne";
         GameScreen.ctx.fillStyle = "rgb(150, 0, 0)";
         GameScreen.ctx.fillText(`${this.state.score}`, 1800, 80);
     }

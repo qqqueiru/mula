@@ -129,11 +129,11 @@ class GameOver extends GameScreen {
     #drawMainMenu(currentOptionIndex) {
         GameScreen.ctx.fillStyle = "rgb(0, 0, 0)";
         GameScreen.ctx.textAlign = "center";
-        GameScreen.ctx.font = "bold 60px Arial";
+        GameScreen.ctx.font = "bold 60px SigmarOne";
         GameScreen.ctx.fillText("GAME OVER", GameScreen.width / 2, GameScreen.height * 0.4);
-        GameScreen.ctx.font = "bold 40px Arial";
+        GameScreen.ctx.font = "bold 40px SigmarOne";
         GameScreen.ctx.fillText(`You scored ${this.#score} points`, GameScreen.width / 2, GameScreen.height * 0.45);
-        GameScreen.ctx.font = "bold 30px Arial";
+        GameScreen.ctx.font = "bold 30px SigmarOne";
         const optionsHeight = 0.54;
         const optionsSpacing = 0.04;
         GameScreen.ctx.fillText("RESTART", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 0));
@@ -154,7 +154,7 @@ class GameOver extends GameScreen {
     #drawShareMenu(currentOptionIndex) {
         GameScreen.ctx.fillStyle = "rgb(0, 0, 0)";
         GameScreen.ctx.textAlign = "center";
-        GameScreen.ctx.font = "bold 30px Arial";
+        GameScreen.ctx.font = "bold 30px SigmarOne";
         const optionsHeight = 0.44;
         const optionsSpacing = 0.04;
         GameScreen.ctx.fillText("TWITTER", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 0));
@@ -179,7 +179,7 @@ class GameOver extends GameScreen {
     #drawHelpMenu(currentOptionIndex) {
         GameScreen.ctx.fillStyle = "rgb(0, 0, 0)";
         GameScreen.ctx.textAlign = "center";
-        GameScreen.ctx.font = "bold 30px Arial";
+        GameScreen.ctx.font = "bold 30px SigmarOne";
         const optionsHeight = 0.54;
         const optionsSpacing = 0.04;
         GameScreen.ctx.fillText("BACK", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 0));
@@ -197,7 +197,7 @@ class GameOver extends GameScreen {
     #drawAboutMenu(currentOptionIndex) {
         GameScreen.ctx.fillStyle = "rgb(0, 0, 0)";
         GameScreen.ctx.textAlign = "center";
-        GameScreen.ctx.font = "bold 30px Arial";
+        GameScreen.ctx.font = "bold 30px SigmarOne";
         const optionsHeight = 0.54;
         const optionsSpacing = 0.04;
         GameScreen.ctx.fillText("BACK", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 0));
