@@ -33,8 +33,8 @@ class ImageManager {
         ImageManager.loadImage("cebolla", "./img/cebolla.png");
         ImageManager.loadImage("pan", "./img/pan.png");
         ImageManager.loadImage("botijo", "./img/botijo.png");
+        ImageManager.loadImage("empanadilla", "./img/empanadilla.png");
         // TODO por dibujar
-        // ImageManager.loadImage("empanada", "./img/empanada.png");
         // ImageManager.loadImage("tortilla", "./img/tortilla.png");
         // ImageManager.loadImage("gamba", "./img/gamba.png");
         // ImageManager.loadImage("pimiento", "./img/pimiento.png");
