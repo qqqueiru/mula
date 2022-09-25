@@ -5,6 +5,7 @@ class FallingItem {
     static imgIds = [
         "cebolla",
         "pan",
+        "botijo",
     ];
     constructor(x, y, vy, ctx = undefined) {
         this.x = x;
