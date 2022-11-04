@@ -12,6 +12,7 @@ class FallingItem {
         "pimiento",
         "queso",
         "morcilla",
+        "tomate",
     ];
     constructor(x, y, vy, ctx = undefined) {
         this.x = x;

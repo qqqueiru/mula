@@ -39,8 +39,8 @@ class ImageManager {
         ImageManager.loadImage("pimiento", "./img/pimiento.png");
         ImageManager.loadImage("queso", "./img/queso.png");
         ImageManager.loadImage("morcilla", "./img/morcilla.png");
+        ImageManager.loadImage("tomate", "./img/tomate.png");
         // TODO por dibujar
-        // ImageManager.loadImage("tomate", "./img/tomate.png");
         // ImageManager.loadImage("aceite", "./img/aceite.png");
         // ImageManager.loadImage("sardina", "./img/sardina.png");
         // ImageManager.loadImage("fletan", "./img/fletan.png");
