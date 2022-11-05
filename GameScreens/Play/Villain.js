@@ -73,7 +73,7 @@ class Villain {
     drawDebugPoint() {
         if (this.ctx) {
             this.ctx.beginPath();
-            this.ctx.ellipse(this.x, this.y, 15, 15, 0, 0, 2 * Math.PI);
+            this.ctx.ellipse(Math.floor(this.x), Math.floor(this.y), 15, 15, 0, 0, 2 * Math.PI);
             this.ctx.fillStyle = 'rgb(0, 0, 0)';
             this.ctx.fill();
         }

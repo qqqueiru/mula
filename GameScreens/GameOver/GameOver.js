@@ -130,22 +130,22 @@ class GameOver extends GameScreen {
         GameScreen.ctx.fillStyle = "rgb(0, 0, 0)";
         GameScreen.ctx.textAlign = "center";
         GameScreen.ctx.font = "bold 60px SigmarOne";
-        GameScreen.ctx.fillText("GAME OVER", GameScreen.width / 2, GameScreen.height * 0.4);
+        GameScreen.ctx.fillText("GAME OVER", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.4));
         GameScreen.ctx.font = "bold 40px SigmarOne";
-        GameScreen.ctx.fillText(`You scored ${this.#score} points`, GameScreen.width / 2, GameScreen.height * 0.45);
+        GameScreen.ctx.fillText(`You scored ${this.#score} points`, Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.45));
         GameScreen.ctx.font = "bold 30px SigmarOne";
         const optionsHeight = 0.54;
         const optionsSpacing = 0.04;
-        GameScreen.ctx.fillText("RESTART", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 0));
-        GameScreen.ctx.fillText("SHARE", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 1));
-        GameScreen.ctx.fillText("HELP", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 2));
-        GameScreen.ctx.fillText("ABOUT", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 3));
+        GameScreen.ctx.fillText("RESTART", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
+        GameScreen.ctx.fillText("SHARE", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 1)));
+        GameScreen.ctx.fillText("HELP", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 2)));
+        GameScreen.ctx.fillText("ABOUT", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 3)));
 
         // Rectangulito para indicar seleccion actual
         GameScreen.ctx.beginPath();
         GameScreen.ctx.rect(
-            GameScreen.width * 0.40, GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02),
-            GameScreen.width * 0.01, GameScreen.height * 0.02
+            Math.floor(GameScreen.width * 0.40), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
+            Math.floor(GameScreen.width * 0.01), Math.floor(GameScreen.height * 0.02)
         );
         GameScreen.ctx.fillStyle = "rgb(255, 0, 0)";
         GameScreen.ctx.fill();
@@ -157,11 +157,11 @@ class GameOver extends GameScreen {
         GameScreen.ctx.font = "bold 30px SigmarOne";
         const optionsHeight = 0.44;
         const optionsSpacing = 0.04;
-        GameScreen.ctx.fillText("TWITTER", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 0));
-        GameScreen.ctx.fillText("FACEBOOK", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 1));
-        GameScreen.ctx.fillText("LINKEDIN", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 2));
-        GameScreen.ctx.fillText("PINTEREST", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 3));
-        GameScreen.ctx.fillText("BACK", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 6));
+        GameScreen.ctx.fillText("TWITTER", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
+        GameScreen.ctx.fillText("FACEBOOK", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 1)));
+        GameScreen.ctx.fillText("LINKEDIN", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 2)));
+        GameScreen.ctx.fillText("PINTEREST", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 3)));
+        GameScreen.ctx.fillText("BACK", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 6)));
 
         // Rectangulito para indicar seleccion actual
         if (currentOptionIndex > 3) {
@@ -169,8 +169,8 @@ class GameOver extends GameScreen {
         }
         GameScreen.ctx.beginPath();
         GameScreen.ctx.rect(
-            GameScreen.width * 0.40, GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02),
-            GameScreen.width * 0.01, GameScreen.height * 0.02
+            Math.floor(GameScreen.width * 0.40), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
+            Math.floor(GameScreen.width * 0.01), Math.floor(GameScreen.height * 0.02)
         );
         GameScreen.ctx.fillStyle = "rgb(255, 0, 0)";
         GameScreen.ctx.fill();
@@ -182,13 +182,13 @@ class GameOver extends GameScreen {
         GameScreen.ctx.font = "bold 30px SigmarOne";
         const optionsHeight = 0.54;
         const optionsSpacing = 0.04;
-        GameScreen.ctx.fillText("BACK", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 0));
+        GameScreen.ctx.fillText("BACK", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
 
         // Rectangulito para indicar seleccion actual
         GameScreen.ctx.beginPath();
         GameScreen.ctx.rect(
-            GameScreen.width * 0.40, GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02),
-            GameScreen.width * 0.01, GameScreen.height * 0.02
+            Math.floor(GameScreen.width * 0.40), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
+            Math.floor(GameScreen.width * 0.01), Math.floor(GameScreen.height * 0.02)
         );
         GameScreen.ctx.fillStyle = "rgb(255, 0, 0)";
         GameScreen.ctx.fill();
@@ -200,13 +200,13 @@ class GameOver extends GameScreen {
         GameScreen.ctx.font = "bold 30px SigmarOne";
         const optionsHeight = 0.54;
         const optionsSpacing = 0.04;
-        GameScreen.ctx.fillText("BACK", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 0));
+        GameScreen.ctx.fillText("BACK", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
 
         // Rectangulito para indicar seleccion actual
         GameScreen.ctx.beginPath();
         GameScreen.ctx.rect(
-            GameScreen.width * 0.40, GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02),
-            GameScreen.width * 0.01, GameScreen.height * 0.02
+            Math.floor(GameScreen.width * 0.40), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
+            Math.floor(GameScreen.width * 0.01), Math.floor(GameScreen.height * 0.02)
         );
         GameScreen.ctx.fillStyle = "rgb(255, 0, 0)";
         GameScreen.ctx.fill();
@@ -259,8 +259,8 @@ class GameOver extends GameScreen {
     draw() {
         GameScreen.ctx.beginPath();
         GameScreen.ctx.rect(
-            GameScreen.width / 4, GameScreen.height / 4,
-            GameScreen.width / 2, GameScreen.height / 2
+            Math.floor(GameScreen.width / 4), Math.floor(GameScreen.height / 4),
+            Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height / 2)
         );
         GameScreen.ctx.fillStyle = "rgb(255, 255, 255)";
         GameScreen.ctx.fill();

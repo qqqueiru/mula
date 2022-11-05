@@ -54,7 +54,7 @@ class FallingItem {
     drawDebugPoint() {
         if (this.ctx) {
             this.ctx.beginPath();
-            this.ctx.ellipse(this.x, this.y, 15, 15, 0, 0, 2 * Math.PI);
+            this.ctx.ellipse(Math.floor(this.x), Math.floor(this.y), 15, 15, 0, 0, 2 * Math.PI);
             this.ctx.fillStyle = 'rgb(0, 255, 0)';
             this.ctx.fill();
         }
@@ -63,10 +63,10 @@ class FallingItem {
     draw() {
         this.ctx.beginPath();
         const scale = 4;
-        const dw = this.img.width * scale;
-        const dh = this.img.height * scale;
-        const dx = this.x - dw / 2;
-        const dy = this.y - dh / 2;
+        const dw = Math.floor(this.img.width * scale);
+        const dh = Math.floor(this.img.height * scale);
+        const dx = Math.floor(this.x - dw / 2);
+        const dy = Math.floor(this.y - dh / 2);
         this.ctx.drawImage(this.img, dx, dy, dw, dh);
     }
 }

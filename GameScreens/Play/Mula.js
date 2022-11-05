@@ -21,7 +21,15 @@ class Ellipse {
     }
     draw() {
         this.ctx.beginPath();
-        this.ctx.ellipse(this.x, this.y, this.a, this.b, 0, 0, 2 * Math.PI);
+        this.ctx.ellipse(
+            Math.floor(this.x), 
+            Math.floor(this.y),
+            Math.floor(this.a),
+            Math.floor(this.b),
+            0,
+            0,
+            2 * Math.PI
+        );
         this.ctx.stroke();
     }
 }

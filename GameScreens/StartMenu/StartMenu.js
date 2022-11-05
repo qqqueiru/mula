@@ -65,19 +65,19 @@ class StartMenu extends GameScreen {
         GameScreen.ctx.fillStyle = "rgb(0, 0, 0)";
         GameScreen.ctx.textAlign = "center";
         GameScreen.ctx.font = "bold 60px SigmarOne";
-        GameScreen.ctx.fillText("MULA", GameScreen.width / 2, GameScreen.height * 0.4);
+        GameScreen.ctx.fillText("MULA", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.4));
         GameScreen.ctx.font = "bold 30px SigmarOne";
         const optionsHeight = 0.54;
         const optionsSpacing = 0.04;
-        GameScreen.ctx.fillText("START", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 0));
-        GameScreen.ctx.fillText("HELP", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 1));
-        GameScreen.ctx.fillText("ABOUT", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 2));
+        GameScreen.ctx.fillText("START", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
+        GameScreen.ctx.fillText("HELP", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 1)));
+        GameScreen.ctx.fillText("ABOUT", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 2)));
 
         // Rectangulito para indicar seleccion actual
         GameScreen.ctx.beginPath();
         GameScreen.ctx.rect(
-            GameScreen.width * 0.40, GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02),
-            GameScreen.width * 0.01, GameScreen.height * 0.02
+            Math.floor(GameScreen.width * 0.40), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
+            Math.floor(GameScreen.width * 0.01), Math.floor(GameScreen.height * 0.02)
         );
         GameScreen.ctx.fillStyle = "rgb(255, 0, 0)";
         GameScreen.ctx.fill();
@@ -89,13 +89,13 @@ class StartMenu extends GameScreen {
         GameScreen.ctx.font = "bold 30px SigmarOne";
         const optionsHeight = 0.54;
         const optionsSpacing = 0.04;
-        GameScreen.ctx.fillText("BACK", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 0));
+        GameScreen.ctx.fillText("BACK", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
 
         // Rectangulito para indicar seleccion actual
         GameScreen.ctx.beginPath();
         GameScreen.ctx.rect(
-            GameScreen.width * 0.40, GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02),
-            GameScreen.width * 0.01, GameScreen.height * 0.02
+            Math.floor(GameScreen.width * 0.40), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
+            Math.floor(GameScreen.width * 0.01), Math.floor(GameScreen.height * 0.02)
         );
         GameScreen.ctx.fillStyle = "rgb(255, 0, 0)";
         GameScreen.ctx.fill();
@@ -107,13 +107,13 @@ class StartMenu extends GameScreen {
         GameScreen.ctx.font = "bold 30px SigmarOne";
         const optionsHeight = 0.54;
         const optionsSpacing = 0.04;
-        GameScreen.ctx.fillText("BACK", GameScreen.width / 2, GameScreen.height * (optionsHeight + optionsSpacing * 0));
+        GameScreen.ctx.fillText("BACK", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
 
         // Rectangulito para indicar seleccion actual
         GameScreen.ctx.beginPath();
         GameScreen.ctx.rect(
-            GameScreen.width * 0.40, GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02),
-            GameScreen.width * 0.01, GameScreen.height * 0.02
+            Math.floor(GameScreen.width * 0.40), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
+            Math.floor(GameScreen.width * 0.01), Math.floor(GameScreen.height * 0.02)
         );
         GameScreen.ctx.fillStyle = "rgb(255, 0, 0)";
         GameScreen.ctx.fill();
@@ -172,8 +172,8 @@ class StartMenu extends GameScreen {
 
         GameScreen.ctx.beginPath();
         GameScreen.ctx.rect(
-            GameScreen.width / 4, GameScreen.height / 4,
-            GameScreen.width / 2, GameScreen.height / 2
+            Math.floor(GameScreen.width / 4), Math.floor(GameScreen.height / 4),
+            Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height / 2)
         );
         GameScreen.ctx.fillStyle = "rgb(255, 255, 255)";
         GameScreen.ctx.fill();

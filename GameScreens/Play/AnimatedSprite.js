@@ -44,10 +44,10 @@ class AnimatedSprite {
         const sh = this.#img.height / this.#rows;
         const sx = currentCol * sw;
         const sy = currentRow * sh;
-        const dx = xCenter - sw / 2 * this.#scale;
-        const dy = yCenter - sh / 2 * this.#scale;
-        const dw = sw * this.#scale;
-        const dh = sh * this.#scale;
+        const dx = Math.floor(xCenter - sw / 2 * this.#scale);
+        const dy = Math.floor(yCenter - sh / 2 * this.#scale);
+        const dw = Math.floor(sw * this.#scale);
+        const dh = Math.floor(sh * this.#scale);
 
         this.#ctx.drawImage(this.#img, sx, sy, sw, sh, dx, dy, dw, dh);
 
