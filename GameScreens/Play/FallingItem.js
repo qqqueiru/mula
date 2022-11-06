@@ -42,6 +42,11 @@ class FallingItem {
         "fresa",
         "melon",
     ];
+
+    #img;
+    #imgWidth;
+    #imgHeight;
+
     constructor(x, y, vy, ctx = undefined) {
         this.x = x;
         this.y = y;  // Quizás en un principio convenga que todo caiga desde un mismo y
@@ -53,7 +58,9 @@ class FallingItem {
 
         // De todas las imágenes disponibles para un objeto en caída libre, seleccionamos una al azar.
         const randomImgId = FallingItem.imgIds[parseInt(Math.random() * FallingItem.imgIds.length)];
-        this.img = ImageManager.getImage(randomImgId);
+        this.#img = ImageManager.getImage(randomImgId);
+        this.#imgWidth = this.#img.width;  // Para optimizar se realiza lectura una sola vez
+        this.#imgHeight = this.#img.height;
     }
 
     updatePos() {
@@ -81,10 +88,10 @@ class FallingItem {
     draw() {
         this.ctx.beginPath();
         const scale = 4;
-        const dw = Math.floor(this.img.width * scale);
-        const dh = Math.floor(this.img.height * scale);
+        const dw = Math.floor(this.#imgWidth * scale);
+        const dh = Math.floor(this.#imgHeight * scale);
         const dx = Math.floor(this.x - dw / 2);
         const dy = Math.floor(this.y - dh / 2);
-        this.ctx.drawImage(this.img, dx, dy, dw, dh);
+        this.ctx.drawImage(this.#img, dx, dy, dw, dh);
     }
 }

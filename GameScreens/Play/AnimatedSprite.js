@@ -1,6 +1,8 @@
 class AnimatedSprite {
     #imgId;
     #img;
+    #imgWidth;
+    #imgHeight;
     #scale;
     #cols;
     #rows;
@@ -24,6 +26,8 @@ class AnimatedSprite {
     constructor(imgId, scale, cols, rows, stepsPerFrame, ctx) {
         this.#imgId = imgId;
         this.#img = ImageManager.getImage(imgId);
+        this.#imgWidth = this.#img.width;  // Para optimizar se realiza lectura una sola vez
+        this.#imgHeight = this.#img.height;
         this.#scale = scale;  // En este proyecto una escala de 4 parece quedar bien
         this.#cols = cols;
         this.#rows = rows;
@@ -40,8 +44,8 @@ class AnimatedSprite {
         const currentRow = Math.floor(currentFrame / this.#cols);
         const currentCol = currentFrame % this.#cols;
 
-        const sw = this.#img.width / this.#cols;
-        const sh = this.#img.height / this.#rows;
+        const sw = this.#imgWidth / this.#cols;
+        const sh = this.#imgHeight / this.#rows;
         const sx = currentCol * sw;
         const sy = currentRow * sh;
         const dx = Math.floor(xCenter - sw / 2 * this.#scale);
