@@ -132,7 +132,6 @@ class GameOver extends GameScreen {
         GameScreen.ctx.font = "bold 60px SigmarOne";
         GameScreen.ctx.fillText("GAME OVER", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.4));
         GameScreen.ctx.font = "bold 40px SigmarOne";
-        this.#score = 1234567890987654;
         GameScreen.ctx.fillText(
             `You scored ${this.#score} point${this.#score == 1 ? "" : "s"}`,
             Math.floor(GameScreen.width / 2),
