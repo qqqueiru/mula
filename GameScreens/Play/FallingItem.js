@@ -37,6 +37,10 @@ class FallingItem {
         "melocoton",
         "albondiga",
         "croqueta",
+        "helado_palo",
+        "helado_cucurucho",
+        "fresa",
+        "melon",
     ];
     constructor(x, y, vy, ctx = undefined) {
         this.x = x;

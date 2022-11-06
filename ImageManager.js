@@ -64,11 +64,11 @@ class ImageManager {
         ImageManager.loadImage("melocoton", "./img/melocoton.png");
         ImageManager.loadImage("albondiga", "./img/albondiga.png");
         ImageManager.loadImage("croqueta", "./img/croqueta.png");
+        ImageManager.loadImage("helado_palo", "./img/helado_palo.png");
+        ImageManager.loadImage("helado_cucurucho", "./img/helado_cucurucho.png");
+        ImageManager.loadImage("fresa", "./img/fresa.png");
+        ImageManager.loadImage("melon", "./img/melon.png");
         // TODO por dibujar
-        // ImageManager.loadImage("helado_palo", "./img/helado_palo.png");
-        // ImageManager.loadImage("helado_cucurucho", "./img/helado_cucurucho.png");
-        // ImageManager.loadImage("fresa", "./img/fresa.png");
-        // ImageManager.loadImage("melon", "./img/melon.png");
         // ImageManager.loadImage("miel", "./img/miel.png");
         // ImageManager.loadImage("percebe", "./img/percebe.png");
     }
