@@ -50,11 +50,11 @@ class ImageManager {
         ImageManager.loadImage("rosquilla", "./img/rosquilla.png");
         ImageManager.loadImage("churros", "./img/churros.png");
         ImageManager.loadImage("magdalena", "./img/magdalena.png");
+        ImageManager.loadImage("ensaimada", "./img/ensaimada.png");
+        ImageManager.loadImage("batido_cacao", "./img/batido_cacao.png");  // cacao leite
+        ImageManager.loadImage("zumo", "./img/zumo.png");
+        ImageManager.loadImage("langostino", "./img/langosta.png");
         // TODO por dibujar
-        // ImageManager.loadImage("ensaimada", "./img/ensaimada.png");
-        // ImageManager.loadImage("batido_cacao", "./img/batido_cacao.png");  // cacao leite
-        // ImageManager.loadImage("zumo", "./img/zumo.png");
-        // ImageManager.loadImage("langostino", "./img/langostino.png");
         // ImageManager.loadImage("tableta_chocolate", "./img/tableta_chocolate.png");
         // ImageManager.loadImage("cerezas", "./img/cerezas.png");
         // ImageManager.loadImage("uvas", "./img/uvas.png");
