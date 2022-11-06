@@ -68,8 +68,8 @@ class ImageManager {
         ImageManager.loadImage("helado_cucurucho", "./img/helado_cucurucho.png");
         ImageManager.loadImage("fresa", "./img/fresa.png");
         ImageManager.loadImage("melon", "./img/melon.png");
+        ImageManager.loadImage("miel", "./img/miel.png");
         // TODO por dibujar
-        // ImageManager.loadImage("miel", "./img/miel.png");
         // ImageManager.loadImage("percebe", "./img/percebe.png");
     }
 

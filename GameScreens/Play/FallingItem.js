@@ -41,6 +41,7 @@ class FallingItem {
         "helado_cucurucho",
         "fresa",
         "melon",
+        "miel",
     ];
 
     #img;
