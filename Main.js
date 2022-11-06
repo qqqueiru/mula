@@ -62,6 +62,45 @@ window.addEventListener("keyup", (event) => {
     inputs.get("AnyKey")?.reset();
 });
 
+window.addEventListener("mousedown", (event) => {
+    // NOTE: Tal vez convenga ubicar el criterio de si es enter, left o right en las distintas pantallas de juego
+    // Por ahora se añade la escucha a ratón para probar el soporte en pantallas táctiles
+    // WARNING: Puede haber bug si se utiliza el teclado al mismo tiempo
+    // NOTE: Tal vez convenga que las opciones en los menús se alineen horizontalmente
+    let inputToAdd = "Enter";
+    const x = event.clientX / document.body.clientWidth;
+    if (x < 0.4)
+    {
+        inputToAdd = "ArrowLeft";
+    }
+    else if (x > 0.6)
+    {
+        inputToAdd = "ArrowRight";
+    }
+    if (inputs.has(inputToAdd)) {
+        const input = inputs.get(inputToAdd);
+        if (input.isResetted()) {
+            input.activate();
+        }
+    } else {
+        inputs.set(inputToAdd, new Input());
+    }
+
+    if (inputs.has("AnyKey")) {
+        if (Input.anyKey.isResetted()) {
+            Input.anyKey.activate();
+        }
+    } else {
+        inputs.set("AnyKey", Input.anyKey);
+    }
+});
+window.addEventListener("mouseup", (event) => {
+    inputs.get("Enter")?.reset();
+    inputs.get("ArrowLeft")?.reset();
+    inputs.get("ArrowRight")?.reset();
+    inputs.get("AnyKey")?.reset();
+});
+
 function loop() {
     GameScreen.currentScreen.runIteration();
     window.requestAnimationFrame(loop);
