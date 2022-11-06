@@ -60,11 +60,11 @@ class ImageManager {
         ImageManager.loadImage("vino", "./img/vino.png");
         ImageManager.loadImage("zanahoria", "./img/zanahoria.png");
         ImageManager.loadImage("platano", "./img/platano.png");
+        ImageManager.loadImage("manzana", "./img/manzana.png");
+        ImageManager.loadImage("melocoton", "./img/melocoton.png");
+        ImageManager.loadImage("albondiga", "./img/albondiga.png");
+        ImageManager.loadImage("croqueta", "./img/croqueta.png");
         // TODO por dibujar
-        // ImageManager.loadImage("manzana", "./img/manzana.png");
-        // ImageManager.loadImage("melocoton", "./img/melocoton.png");
-        // ImageManager.loadImage("albondiga", "./img/albondiga.png");
-        // ImageManager.loadImage("croqueta", "./img/croqueta.png");
         // ImageManager.loadImage("helado_palo", "./img/helado_palo.png");
         // ImageManager.loadImage("helado_cucurucho", "./img/helado_cucurucho.png");
         // ImageManager.loadImage("fresa", "./img/fresa.png");
