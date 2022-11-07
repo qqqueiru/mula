@@ -42,14 +42,16 @@ class Mula {
         this.x = x;
         this.y = y;
         this.ctx = ctx;
+        this.ivx = 0;  // Número entero, que multiplicado por el incremento de velocidad debe resultar en vx
         this.vx = 0;  // Se permiten velocidades entre -this.maxSpeed y this.maxSpeed
-        this.xLimits = [100, 1820];
-        this.maxSpeed = 20;
-        this.speedIncrement = 5;
-        this.goodBoundingEllipse = new Ellipse(x, y, 210, 140, ctx);  // 200, 100 originalmente
+        this.xLimits = [0.05 * ctx.canvas.width, 0.95 * ctx.canvas.width];
+        this.maxISpeed = 4;
+        this.maxSpeed = 0.01 * ctx.canvas.width;
+        this.speedIncrement = 0.0026 * ctx.canvas.width;
+        this.goodBoundingEllipse = new Ellipse(x, y, 0.1 * ctx.canvas.width, 0.07 * ctx.canvas.width, ctx);  // 200, 100 originalmente (cuando tenía 1920x1080)
         this.sprites = {
-            right: new AnimatedSprite("mula_sprite_animation_right", 4, 4, 3, -1, ctx),
-            left: new AnimatedSprite("mula_sprite_animation_left", 4, 4, 3, -1, ctx),
+            right: new AnimatedSprite("mula_sprite_animation_right", GameScreen.imgScale, 4, 3, -1, ctx),
+            left: new AnimatedSprite("mula_sprite_animation_left", GameScreen.imgScale, 4, 3, -1, ctx),
         }
 
         this.sprites.right.pause();
@@ -58,15 +60,15 @@ class Mula {
     }
 
     #changeAnimation() {
-        if (this.vx == 0) {
+        if (this.ivx == 0) {
             this.sprites[this.currentSprite].pause();
         } else {
-            if (this.vx > 0) {
+            if (this.ivx > 0) {
                 this.currentSprite = "right";
             } else {
                 this.currentSprite = "left";
             }
-            const stepsPerFrame = 1 / Math.abs(this.vx) * 40;
+            const stepsPerFrame = 1 / Math.abs(this.ivx) * 10;  // 1 / 20 * 40
             this.sprites[this.currentSprite].setStepsPerFrame(stepsPerFrame);
             this.sprites[this.currentSprite].resume();
         }
@@ -79,27 +81,28 @@ class Mula {
     }
 
     commandToDirection(direction) {
-        const oldVx = this.vx;
+        const oldIvx = this.ivx;
         if (direction == "left") {
-            this.vx -= this.speedIncrement;
-            if (this.vx < -this.maxSpeed)
+            this.ivx--;
+            if (this.ivx < -this.maxISpeed)
             {
-                this.vx = -this.maxSpeed;
+                this.ivx = -this.maxISpeed;
             }
         } else if (direction == "right") {
-            this.vx += this.speedIncrement;
-            if (this.vx > this.maxSpeed)
+            this.ivx++;
+            if (this.ivx > this.maxISpeed)
             {
-                this.vx = this.maxSpeed;
+                this.ivx = this.maxISpeed;
             }
         }
-        if (this.vx != oldVx) {
+        if (this.ivx != oldIvx) {
             this.#playCommandAudio();
         }
         this.#changeAnimation();
     }
 
     updatePos() {
+        this.vx = this.ivx * this.speedIncrement;
         if (this.x >= this.xLimits[0] && this.x <= this.xLimits[1]) {
             this.x += this.vx;
         }

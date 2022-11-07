@@ -23,7 +23,7 @@ class PressAnyKey extends GameScreen {
         GameScreen.ctx.fill();
     
         this.t += 0.15;
-        const fontSize = 50;  // + 5 * Math.sin(this.t);
+        const fontSize = Math.floor(0.026 * GameScreen.width);  // + 5 * Math.sin(this.t);
         GameScreen.ctx.font = `bold ${fontSize}px SigmarOne`;
         GameScreen.ctx.textAlign = "center";
 
@@ -32,7 +32,7 @@ class PressAnyKey extends GameScreen {
         // GameScreen.ctx.lineWidth = 1;
         GameScreen.ctx.fillText(
             `PRESS ANY KEY`, 
-            Math.floor(GameScreen.width / 2 + 20 * Math.sin(this.t)),
+            Math.floor(GameScreen.width * (0.5 + 0.01 * Math.sin(this.t))),
             Math.floor(GameScreen.height * 0.5)
         );
         // GameScreen.ctx.strokeText(`PRESS ANY KEY`, GameScreen.width / 2, GameScreen.height * 0.5);

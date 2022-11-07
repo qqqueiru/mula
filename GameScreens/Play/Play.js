@@ -2,7 +2,7 @@ class Play extends GameScreen {
     constructor() {
         super();
         this.state = {
-            mula: new Mula(300, 900, GameScreen.ctx),
+            mula: new Mula(0.156 * GameScreen.width, 0.833 * GameScreen.height, GameScreen.ctx),
             villain: new Villain(GameScreen.ctx),
             fallingItems: [],
             difficulty: 0,

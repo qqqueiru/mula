@@ -1,25 +1,26 @@
 class Villain {
     constructor(ctx) {
-        this.xLimits = [300, 1620];
+        const w = ctx.canvas.width;
+        this.xLimits = [0.15 * w, 0.85 * w];
         this.x = this.xLimits[1];
         this.y = undefined;  // Lo calculamos luego según los coeficientes de la trayectoria
         {
             // Parabola: y = A*x^2 + B*x + C
             const a = 0.0001;
-            const xOffset = 1920 * 0.6;
-            const h = 300;
+            const xOffset = 0.6 * w;
+            const h = 0.28 * ctx.canvas.height;
             const A = a;
             const B = - 2 * a * xOffset;
             const C = a * xOffset + h;
             this.yCurveCoeffs = [A, B, C];  // Coeficientes de una curva polinomial tal que y(x) = this.yCurveCoeffs[0] * x^2 + this.yCurveCoeffs[1] * x + this.yCurveCoefs[2] ...
         }
-        this.allowedSpeeds = [-10, -5, 0, 5, 10];
+        this.allowedSpeeds = [-0.0052 * w, -0.0026 * w, 0, 0.0026 * w, 0.0052 * w];
         this.vx = this.allowedSpeeds[0];
         this.framesUntilNextSpeedChange = 100;
         this.framesUntilNextItemDrop = 100;
         this.framesUntilNextDropHiatus = 1000;
         this.ctx = ctx;
-        this.spriteTest = new AnimatedSprite("villain_sprite_test", 2, 4, 2, 10, ctx);
+        this.spriteTest = new AnimatedSprite("villain_sprite_test", GameScreen.imgScale, 4, 2, 10, ctx);
     }
 
     #computeY(x) {
@@ -44,7 +45,7 @@ class Villain {
         let fallingItem;
         this.framesUntilNextItemDrop--;
         if (this.framesUntilNextItemDrop <= 0) {
-            const vy = 6.5 + Math.random() * 3.5;
+            const vy = GameScreen.height * (0.006 + 0.0033 * Math.random());
             fallingItem = new FallingItem(this.x, this.y, vy, this.ctx);
             this.framesUntilNextItemDrop = 15 + Math.random() * 30;
         }

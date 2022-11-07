@@ -4,6 +4,7 @@ ctx.imageSmoothingEnabled = false;
 
 const inputs = new Map();
 
+GameScreen.imgScale = 4;  // Las imágenes se han diseñado de modo que 1 px de imagen corresponde a 1 px de una pantalla 480x270 px
 GameScreen.inputs = inputs;
 GameScreen.ctx = ctx;
 GameScreen.currentScreen = new LoadingScreen();
@@ -112,7 +113,7 @@ function loop() {
     }
 }
 function init() {
-    window.requestAnimationFrame(loop);
+    window.requestAnimationFrame(loop);  // El juego se ha diseñado para que se juegue a 60 FPS. Se espera que esta función cumpla este requisito
     // setInterval(loop, 1000 / 60);
 }
 init();

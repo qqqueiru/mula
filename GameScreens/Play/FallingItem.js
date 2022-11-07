@@ -51,7 +51,7 @@ class FallingItem {
     constructor(x, y, vy, ctx = undefined) {
         this.x = x;
         this.y = y;  // Quizás en un principio convenga que todo caiga desde un mismo y
-        this.maxY = 1080 + 100;
+        this.maxY = 1.1 * ctx.canvas.height;
         this.vy = vy;  // Siempre positivo
         this.ctx = ctx;
         this.canBeDeleted = false;
@@ -88,7 +88,7 @@ class FallingItem {
 
     draw() {
         this.ctx.beginPath();
-        const scale = 4;
+        const scale = GameScreen.imgScale;
         const dw = Math.floor(this.#imgWidth * scale);
         const dh = Math.floor(this.#imgHeight * scale);
         const dx = Math.floor(this.x - dw / 2);
