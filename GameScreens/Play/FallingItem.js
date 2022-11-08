@@ -43,6 +43,7 @@ class FallingItem {
         "melon",
         "miel",
         "castaña",
+        "huevo_cocido",
     ];
 
     #img;
