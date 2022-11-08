@@ -42,6 +42,7 @@ class FallingItem {
         "fresa",
         "melon",
         "miel",
+        "castaña",
     ];
 
     #img;
