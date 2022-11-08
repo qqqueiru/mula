@@ -23,7 +23,7 @@ class PressAnyKey extends GameScreen {
         GameScreen.ctx.fill();
     
         this.t += 0.15;
-        const fontSize = Math.floor(0.026 * GameScreen.width);  // + 5 * Math.sin(this.t);
+        const fontSize = Math.floor(0.0463 * GameScreen.height);  // + 5 * Math.sin(this.t);
         GameScreen.ctx.font = `bold ${fontSize}px SigmarOne`;
         GameScreen.ctx.textAlign = "center";
 

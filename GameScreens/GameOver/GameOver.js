@@ -129,15 +129,15 @@ class GameOver extends GameScreen {
     #drawMainMenu(currentOptionIndex) {
         GameScreen.ctx.fillStyle = "rgb(0, 0, 0)";
         GameScreen.ctx.textAlign = "center";
-        GameScreen.ctx.font = "bold 60px SigmarOne";
+        GameScreen.ctx.font = `bold ${Math.floor(0.055 * GameScreen.height)}px SigmarOne`;
         GameScreen.ctx.fillText("GAME OVER", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.4));
-        GameScreen.ctx.font = "bold 40px SigmarOne";
+        GameScreen.ctx.font = `bold ${Math.floor(0.037 * GameScreen.height)}px SigmarOne`;
         GameScreen.ctx.fillText(
             `You scored ${this.#score} point${this.#score == 1 ? "" : "s"}`,
             Math.floor(GameScreen.width / 2),
             Math.floor(GameScreen.height * 0.45)
         );
-        GameScreen.ctx.font = "bold 30px SigmarOne";
+        GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px SigmarOne`;
         const optionsHeight = 0.54;
         const optionsSpacing = 0.04;
         GameScreen.ctx.fillText("RESTART", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
@@ -158,7 +158,7 @@ class GameOver extends GameScreen {
     #drawShareMenu(currentOptionIndex) {
         GameScreen.ctx.fillStyle = "rgb(0, 0, 0)";
         GameScreen.ctx.textAlign = "center";
-        GameScreen.ctx.font = "bold 30px SigmarOne";
+        GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px SigmarOne`;
         const optionsHeight = 0.44;
         const optionsSpacing = 0.04;
         GameScreen.ctx.fillText("TWITTER", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
@@ -183,7 +183,7 @@ class GameOver extends GameScreen {
     #drawHelpMenu(currentOptionIndex) {
         GameScreen.ctx.fillStyle = "rgb(0, 0, 0)";
         GameScreen.ctx.textAlign = "center";
-        GameScreen.ctx.font = "bold 30px SigmarOne";
+        GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px SigmarOne`;
         const optionsHeight = 0.54;
         const optionsSpacing = 0.04;
         GameScreen.ctx.fillText("BACK", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
@@ -201,7 +201,7 @@ class GameOver extends GameScreen {
     #drawAboutMenu(currentOptionIndex) {
         GameScreen.ctx.fillStyle = "rgb(0, 0, 0)";
         GameScreen.ctx.textAlign = "center";
-        GameScreen.ctx.font = "bold 30px SigmarOne";
+        GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px SigmarOne`;
         const optionsHeight = 0.54;
         const optionsSpacing = 0.04;
         GameScreen.ctx.fillText("BACK", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
