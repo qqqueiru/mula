@@ -6,9 +6,9 @@ class Villain {
         this.y = undefined;  // Lo calculamos luego según los coeficientes de la trayectoria
         {
             // Parabola: y = A*x^2 + B*x + C
-            const a = 0.0001;
+            const a = 0.00015;
             const xOffset = 0.6 * w;
-            const h = 0.28 * ctx.canvas.height;
+            const h = 0.35 * ctx.canvas.height;
             const A = a;
             const B = - 2 * a * xOffset;
             const C = a * xOffset + h;

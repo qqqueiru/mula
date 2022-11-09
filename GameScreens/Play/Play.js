@@ -7,7 +7,7 @@ class Play extends GameScreen {
             fallingItems: [],
             difficulty: 0,
             score: 0,
-            backgroundImgTest: ImageManager.getImage("background_test"),
+            backgroundImg: ImageManager.getImage("background"),
         };
         this.backgroundMusic = AudioManager.getAudio("background_music_1");
         this.backgroundMusic.loop = true;
@@ -60,7 +60,7 @@ class Play extends GameScreen {
     draw() {
         GameScreen.ctx.beginPath();
 
-        GameScreen.ctx.drawImage(this.state.backgroundImgTest, 0, 0, GameScreen.width, GameScreen.height);
+        GameScreen.ctx.drawImage(this.state.backgroundImg, 0, 0, GameScreen.width, GameScreen.height);
 
         // GameScreen.ctx.clearRect(0, 0, GameScreen.width, GameScreen.height);
         // GameScreen.ctx.rect(0, 0, GameScreen.width, GameScreen.height);
