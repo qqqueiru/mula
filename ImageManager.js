@@ -71,8 +71,7 @@ class ImageManager {
         ImageManager.loadImage("miel", "./img/miel.png");
         ImageManager.loadImage("castaña", "./img/castaña.png");
         ImageManager.loadImage("huevo_cocido", "./img/huevo_cocido.png");
-        // TODO por dibujar
-        // ImageManager.loadImage("percebe", "./img/percebe.png");
+        ImageManager.loadImage("percebe", "./img/percebe.png");
     }
 
 }
