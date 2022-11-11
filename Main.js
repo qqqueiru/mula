@@ -1,3 +1,4 @@
+// TODO pensar en una alternativa a canvas, para ver si mejora el rendimiento
 const canvas = document.getElementById("mula-canvas");
 const ctx = canvas.getContext("2d", { alpha: false, desynchronized: true });
 ctx.imageSmoothingEnabled = false;
