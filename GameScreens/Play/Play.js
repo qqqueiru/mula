@@ -8,6 +8,7 @@ class Play extends GameScreen {
             difficulty: 0,
             score: 0,
             backgroundImg: ImageManager.getImage("background"),
+            foregroundImg: ImageManager.getImage("foreground"),
         };
         this.backgroundMusic = AudioManager.getAudio("background_music_1");
         this.backgroundMusic.loop = true;
@@ -74,6 +75,9 @@ class Play extends GameScreen {
         this.state.mula.drawDebugGoodBounding();
         this.state.villain.draw();
         this.state.villain.drawDebugPoint();
+
+        GameScreen.ctx.drawImage(this.state.foregroundImg, 0, 0, GameScreen.width, GameScreen.height);
+        
         for (let i = 0; i < this.state.fallingItems.length; ++i) {
             this.state.fallingItems[i].draw();
             // this.state.fallingItems[i].drawDebugPoint();

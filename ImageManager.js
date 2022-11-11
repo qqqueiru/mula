@@ -28,6 +28,7 @@ class ImageManager {
         ImageManager.loadImage("mula_sprite_animation_left", "./img/mula_sprite_animation_left.png");
         ImageManager.loadImage("villain_sprite_test", "./img/villain_sprite_test.png");
         ImageManager.loadImage("background", "./img/background.png");
+        ImageManager.loadImage("foreground", "./img/foreground.png");
 
         // Objetos en caída libre
         ImageManager.loadImage("cebolla", "./img/cebolla.png");
