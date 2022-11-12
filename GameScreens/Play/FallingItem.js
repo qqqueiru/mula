@@ -54,7 +54,7 @@ class FallingItem {
     constructor(x, y, vy, ctx = undefined) {
         this.x = x;
         this.y = y;  // Quizás en un principio convenga que todo caiga desde un mismo y
-        this.maxY = 1.1 * ctx.canvas.height;
+        this.maxY = ctx.canvas.height;
         this.vy = vy;  // Siempre positivo
         this.ctx = ctx;
         this.canBeDeleted = false;
