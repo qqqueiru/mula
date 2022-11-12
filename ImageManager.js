@@ -22,10 +22,8 @@ class ImageManager {
         return ImageManager.imgs.get(id);
     }
     static loadImages() {
-        // TODO hacer aquí la carga de todas las imágenes
-        ImageManager.loadImage("mula_sprite_test", "./img/mula_sprite_test.png");
-        ImageManager.loadImage("mula_sprite_animation_right", "./img/mula_sprite_animation_right.png");
-        ImageManager.loadImage("mula_sprite_animation_left", "./img/mula_sprite_animation_left.png");
+        ImageManager.loadImage("mula_right", "./img/mula_right.png");
+        ImageManager.loadImage("mula_left", "./img/mula_left.png");
         ImageManager.loadImage("villain_right", "./img/villain_right.png");
         ImageManager.loadImage("villain_left", "./img/villain_left.png");
         ImageManager.loadImage("villain_idle", "./img/villain_idle.png");
