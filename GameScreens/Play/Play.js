@@ -77,13 +77,44 @@ class Play extends GameScreen {
 
         GameScreen.ctx.drawImage(this.state.foregroundImg, 0, 0, GameScreen.width, GameScreen.height);
         
+        this.#drawScore();
+
         for (let i = 0; i < this.state.fallingItems.length; ++i) {
             this.state.fallingItems[i].draw();
             // this.state.fallingItems[i].drawDebugPoint();
         }
-    
-        GameScreen.ctx.font = `bold ${Math.floor(0.055 * GameScreen.height)}px SigmarOne`;
-        GameScreen.ctx.fillStyle = "rgb(150, 0, 0)";
-        GameScreen.ctx.fillText(`${this.state.score}`, 1800, 80);
+    }
+
+    #drawScore() {
+        if (this.state.score == 0) {
+            return;
+        }
+        const romanNumeral = romanize(this.state.score);
+        const scorePos = {x: 0.50 * GameScreen.width, y: 0.40 * GameScreen.height};
+        const rectSize = {
+            w: Math.floor((romanNumeral.length * 0.020 + 0.015) * GameScreen.width),
+            h: Math.floor(0.080 * GameScreen.height),
+        };
+        GameScreen.ctx.beginPath();
+        GameScreen.ctx.rect(
+            Math.floor(scorePos.x - rectSize.w / 2), 
+            Math.floor(scorePos.y - rectSize.h / 2),
+            Math.floor(rectSize.w), 
+            Math.floor(rectSize.h)
+        );
+        GameScreen.ctx.fillStyle = "#e9afaf";
+        GameScreen.ctx.fill();
+
+        GameScreen.ctx.strokeStyle = "#d35f5f";
+        GameScreen.ctx.lineWidth = GameScreen.imgScale * 2;
+        GameScreen.ctx.stroke();
+
+        GameScreen.ctx.font = `bold ${Math.floor(0.055 * GameScreen.height)}px TimesNewRoman`;
+        GameScreen.ctx.fillStyle = "#d35f5f";
+        GameScreen.ctx.fillText(
+            romanNumeral,
+            Math.floor(scorePos.x), 
+            Math.floor(scorePos.y + 0.020 * GameScreen.height)
+        );
     }
 }

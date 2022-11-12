@@ -1,9 +1,11 @@
 class GameOver extends GameScreen {
     #score;
+    #scoreRomanNumeral;
     #menus;
     constructor(score) {
         super();
         this.#score = score;
+        this.#scoreRomanNumeral = romanize(score);
         this.#menus = {
             currentMenu: "mainMenu",
             mainMenu: {
@@ -96,7 +98,8 @@ class GameOver extends GameScreen {
     #shareTwitter() {
         // https://www.sharelinkgenerator.com/
         setTimeout(()=>{
-            const url = `https://twitter.com/intent/tweet?text=I%20scored%20${this.#score}%20points%20on%20Mula.%20LINK`;
+            const scoreToShow = this.#score > 0 ? this.#scoreRomanNumeral : 0;
+            const url = `https://twitter.com/intent/tweet?text=I%20scored%20${scoreToShow}%20point${this.#score == 1 ? "" : "s"}%20on%20Mula.%20LINK`;
             window.open(url, '_blank').focus();
         }, 100);
     }
@@ -133,7 +136,7 @@ class GameOver extends GameScreen {
         GameScreen.ctx.fillText("GAME OVER", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.4));
         GameScreen.ctx.font = `bold ${Math.floor(0.037 * GameScreen.height)}px SigmarOne`;
         GameScreen.ctx.fillText(
-            `You scored ${this.#score} point${this.#score == 1 ? "" : "s"}`,
+            `You scored ${this.#score > 0 ? this.#scoreRomanNumeral : 0} point${this.#score == 1 ? "" : "s"}`,
             Math.floor(GameScreen.width / 2),
             Math.floor(GameScreen.height * 0.45)
         );
