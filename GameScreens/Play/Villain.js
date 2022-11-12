@@ -20,7 +20,12 @@ class Villain {
         this.framesUntilNextItemDrop = 100;
         this.framesUntilNextDropHiatus = 1000;
         this.ctx = ctx;
-        this.spriteTest = new AnimatedSprite("villain_sprite_test", GameScreen.imgScale, 4, 2, 10, ctx);
+        this.sprites = {
+            right:  new AnimatedSprite("villain_right", GameScreen.imgScale, 2, 1, 10, ctx),
+            left:  new AnimatedSprite("villain_left", GameScreen.imgScale, 2, 1, 10, ctx),
+            idle:  new AnimatedSprite("villain_idle", GameScreen.imgScale, 2, 1, 10, ctx),
+        }
+        this.currentSprite = "left";
     }
 
     #computeY(x) {
@@ -33,6 +38,13 @@ class Villain {
 
     #changeSpeed() {
         this.vx = this.allowedSpeeds[parseInt(Math.random() * this.allowedSpeeds.length)];
+        if (this.vx == 0) {
+            this.currentSprite = "idle";
+        } else if (this.vx < 0) {
+            this.currentSprite = "left";
+        } else if (this.vx > 0) {
+            this.currentSprite = "right";
+        }
     }
 
     update() {
@@ -82,6 +94,6 @@ class Villain {
 
     draw() {
         this.ctx.beginPath();
-        this.spriteTest.draw(this.x, this.y);
+        this.sprites[this.currentSprite].draw(this.x, this.y);
     }
 }

@@ -74,7 +74,6 @@ class Play extends GameScreen {
         this.state.mula.draw();
         this.state.mula.drawDebugGoodBounding();
         this.state.villain.draw();
-        this.state.villain.drawDebugPoint();
 
         GameScreen.ctx.drawImage(this.state.foregroundImg, 0, 0, GameScreen.width, GameScreen.height);
         
