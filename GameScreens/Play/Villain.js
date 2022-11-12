@@ -57,7 +57,7 @@ class Villain {
         let fallingItem;
         this.framesUntilNextItemDrop--;
         if (this.framesUntilNextItemDrop <= 0) {
-            const vy = GameScreen.height * (0.006 + 0.0033 * Math.random());
+            const vy = GameScreen.height * (0.0065 + 0.0035 * Math.random());
             fallingItem = new FallingItem(this.x, this.y, vy, this.ctx);
             this.framesUntilNextItemDrop = 15 + Math.random() * 30;
         }

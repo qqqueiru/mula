@@ -48,7 +48,7 @@ class Mula {
         this.maxISpeed = 4;
         this.maxSpeed = 0.01 * ctx.canvas.width;
         this.speedIncrement = 0.0026 * ctx.canvas.width;
-        this.goodBoundingEllipse = new Ellipse(x, y, 0.1 * ctx.canvas.width, 0.07 * ctx.canvas.width, ctx);  // 200, 100 originalmente (cuando tenía 1920x1080)
+        this.goodBoundingEllipse = new Ellipse(x, y, 0.1 * ctx.canvas.width, 0.09 * ctx.canvas.width, ctx);  // 200, 100 originalmente (cuando tenía 1920x1080)
         this.sprites = {
             right: new AnimatedSprite("mula_right", GameScreen.imgScale, 2, 1, -1, ctx),
             left: new AnimatedSprite("mula_left", GameScreen.imgScale, 2, 1, -1, ctx),

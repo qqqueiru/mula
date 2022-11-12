@@ -72,7 +72,7 @@ class Play extends GameScreen {
         // ctx.stroke(p);
     
         this.state.mula.draw();
-        this.state.mula.drawDebugGoodBounding();
+        // this.state.mula.drawDebugGoodBounding();
         this.state.villain.draw();
 
         GameScreen.ctx.drawImage(this.state.foregroundImg, 0, 0, GameScreen.width, GameScreen.height);
