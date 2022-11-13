@@ -45,6 +45,9 @@ class Play extends GameScreen {
             if (isInside) {
                 this.state.fallingItems[i].canBeDeleted = true;
                 this.state.score++;
+                const newRewardAudio = new Audio();
+                newRewardAudio.src = AudioManager.getAudio("reward").src;
+                newRewardAudio.play();
             }
     
             if (this.state.fallingItems[i].fallen) {

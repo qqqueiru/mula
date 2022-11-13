@@ -26,6 +26,7 @@ class AudioManager {
         AudioManager.loadAudio("right", "./audio/right.ogg");
         AudioManager.loadAudio("enter", "./audio/enter.ogg");
         AudioManager.loadAudio("back", "./audio/back.ogg");
+        AudioManager.loadAudio("reward", "./audio/reward.ogg");
     }
 
 }
