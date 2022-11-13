@@ -25,7 +25,10 @@ class AudioManager {
         // TODO hacer aquí la carga de todos los audios
         AudioManager.loadAudio("background_music_0", "./audio/Kevin Macleod - Scheming Weasel Faster.ogg");
         AudioManager.loadAudio("background_music_1", "./audio/Kevin MacLeod - Sneaky Snitch.ogg");
-        AudioManager.loadAudio("palmada", "./audio/palmada.ogg");
+        AudioManager.loadAudio("left", "./audio/left.ogg");
+        AudioManager.loadAudio("right", "./audio/right.ogg");
+        AudioManager.loadAudio("enter", "./audio/enter.ogg");
+        AudioManager.loadAudio("back", "./audio/back.ogg");
     }
 
 }

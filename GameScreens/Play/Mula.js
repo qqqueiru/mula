@@ -74,9 +74,10 @@ class Mula {
         }
     }
 
-    #playCommandAudio() {
+    #playCommandAudio(direction) {
+        // direction debe ser "left" o "right"
         const newCommandAudio = new Audio();
-        newCommandAudio.src = AudioManager.getAudio("palmada").src;
+        newCommandAudio.src = AudioManager.getAudio(direction).src;
         newCommandAudio.play();
     }
 
@@ -96,7 +97,7 @@ class Mula {
             }
         }
         if (this.ivx != oldIvx) {
-            this.#playCommandAudio();
+            this.#playCommandAudio(direction);
         }
         this.#changeAnimation();
     }
