@@ -45,19 +45,41 @@ class StartMenu extends GameScreen {
         };
     }
 
+    #playEnterAudio() {
+        const newEnterAudio = new Audio();
+        newEnterAudio.src = AudioManager.getAudio("enter").src;
+        newEnterAudio.play();
+    }
+
+    #playBackAudio() {
+        const newBackAudio = new Audio();
+        newBackAudio.src = AudioManager.getAudio("back").src;
+        newBackAudio.play();
+    }
+
+    #playSelectionAudio(direction) {
+        const newSelectionAudio = new Audio();
+        newSelectionAudio.src = AudioManager.getAudio(direction).src;
+        newSelectionAudio.play();
+    }
+
     #startGame() {
+        this.#playEnterAudio();
         GameScreen.currentScreen = new Play();
     }
 
     #openHelpMenu() {
+        this.#playEnterAudio();
         this.#menus.currentMenu = "helpMenu";
     }
 
     #openAboutMenu() {
+        this.#playEnterAudio();
         this.#menus.currentMenu = "aboutMenu";
     }
 
     #backToMainMenu() {
+        this.#playBackAudio();
         this.#menus.currentMenu = "mainMenu";
     }
 
@@ -133,6 +155,7 @@ class StartMenu extends GameScreen {
             if (currentOptionIndex < 0) {
                 this.#menus[this.#menus.currentMenu].currentOptionIndex = optionsLength - 1;
             }
+            this.#playSelectionAudio("left");
         }
         if (
             GameScreen.inputs.get("ArrowDown")?.consumeIfActivated() ||
@@ -143,6 +166,7 @@ class StartMenu extends GameScreen {
             if (currentOptionIndex >= optionsLength) {
                 this.#menus[this.#menus.currentMenu].currentOptionIndex = 0;
             }
+            this.#playSelectionAudio("right");
         }
 
         if (

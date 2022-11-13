@@ -79,23 +79,46 @@ class GameOver extends GameScreen {
         };
     }
 
+    #playEnterAudio() {
+        const newEnterAudio = new Audio();
+        newEnterAudio.src = AudioManager.getAudio("enter").src;
+        newEnterAudio.play();
+    }
+
+    #playBackAudio() {
+        const newBackAudio = new Audio();
+        newBackAudio.src = AudioManager.getAudio("back").src;
+        newBackAudio.play();
+    }
+
+    #playSelectionAudio(direction) {
+        const newSelectionAudio = new Audio();
+        newSelectionAudio.src = AudioManager.getAudio(direction).src;
+        newSelectionAudio.play();
+    }
+
     #restartGame() {
+        this.#playEnterAudio();
         GameScreen.currentScreen = new Play();
     }
 
     #openShareMenu() {
+        this.#playEnterAudio();
         this.#menus.currentMenu = "shareMenu";
     }
 
     #openHelpMenu() {
+        this.#playEnterAudio();
         this.#menus.currentMenu = "helpMenu";
     }
 
     #openAboutMenu() {
+        this.#playEnterAudio();
         this.#menus.currentMenu = "aboutMenu";
     }
 
     #shareTwitter() {
+        this.#playEnterAudio();
         // https://www.sharelinkgenerator.com/
         setTimeout(()=>{
             const scoreToShow = this.#score > 0 ? this.#scoreRomanNumeral : 0;
@@ -105,6 +128,7 @@ class GameOver extends GameScreen {
     }
 
     #shareFacebook() {
+        this.#playEnterAudio();
         setTimeout(()=>{
             const url = `https://facebook.com`;
             window.open(url, '_blank').focus();
@@ -112,6 +136,7 @@ class GameOver extends GameScreen {
     }
 
     #shareLinkedin() {
+        this.#playEnterAudio();
         setTimeout(()=>{
             const url = `https://linkedin.com`;
             window.open(url, '_blank').focus();
@@ -119,6 +144,7 @@ class GameOver extends GameScreen {
     }
 
     #sharePinterest() {
+        this.#playEnterAudio();
         setTimeout(()=>{
             const url = `https://pinterest.com`;
             window.open(url, '_blank').focus();
@@ -126,6 +152,7 @@ class GameOver extends GameScreen {
     }
 
     #backToMainMenu() {
+        this.#playBackAudio();
         this.#menus.currentMenu = "mainMenu";
     }
 
@@ -233,6 +260,7 @@ class GameOver extends GameScreen {
             if (currentOptionIndex < 0) {
                 this.#menus[this.#menus.currentMenu].currentOptionIndex = optionsLength - 1;
             }
+            this.#playSelectionAudio("left");
         }
         if (
             GameScreen.inputs.get("ArrowDown")?.consumeIfActivated() ||
@@ -243,6 +271,7 @@ class GameOver extends GameScreen {
             if (currentOptionIndex >= optionsLength) {
                 this.#menus[this.#menus.currentMenu].currentOptionIndex = 0;
             }
+            this.#playSelectionAudio("right");
         }
 
         if (
