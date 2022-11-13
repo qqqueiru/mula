@@ -10,6 +10,9 @@ class PressAnyKey extends GameScreen {
 
     update() {
         if (GameScreen.inputs.get("AnyKey")?.consumeIfActivated()) {
+            const newEnterAudio = new Audio();
+            newEnterAudio.src = AudioManager.getAudio("enter").src;
+            newEnterAudio.play();
             GameScreen.currentScreen = new StartMenu();
         }
     }
