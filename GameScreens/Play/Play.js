@@ -10,10 +10,10 @@ class Play extends GameScreen {
             backgroundImg: ImageManager.getImage("background"),
             foregroundImg: ImageManager.getImage("foreground"),
         };
-        this.backgroundMusic = AudioManager.getAudio("background_music_1");
-        this.backgroundMusic.loop = true;
-        this.backgroundMusic.currentTime = 0;
-        this.backgroundMusic.play();
+        // this.backgroundMusic = AudioManager.getAudio("background_music_1");
+        // this.backgroundMusic.loop = true;
+        // this.backgroundMusic.currentTime = 0;
+        // this.backgroundMusic.play();
     }
 
     handleInputs() {
@@ -49,7 +49,7 @@ class Play extends GameScreen {
     
             if (this.state.fallingItems[i].fallen) {
                 GameScreen.currentScreen = new GameOver(this.state.score);
-                this.backgroundMusic.pause();
+                // this.backgroundMusic.pause();
             }
     
             if (this.state.fallingItems[i].canBeDeleted) {
