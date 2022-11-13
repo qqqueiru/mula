@@ -51,6 +51,9 @@ class Play extends GameScreen {
             }
     
             if (this.state.fallingItems[i].fallen) {
+                const newFailAudio = new Audio();
+                newFailAudio.src = AudioManager.getAudio("back").src;
+                newFailAudio.play();
                 GameScreen.currentScreen = new GameOver(this.state.score);
                 // this.backgroundMusic.pause();
             }
