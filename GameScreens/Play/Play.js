@@ -45,15 +45,11 @@ class Play extends GameScreen {
             if (isInside) {
                 this.state.fallingItems[i].canBeDeleted = true;
                 this.state.score++;
-                const newRewardAudio = new Audio();
-                newRewardAudio.src = AudioManager.getAudio("reward").src;
-                newRewardAudio.play();
+                AudioManager.playSoundEffect("reward");
             }
     
             if (this.state.fallingItems[i].fallen) {
-                const newFailAudio = new Audio();
-                newFailAudio.src = AudioManager.getAudio("back").src;
-                newFailAudio.play();
+                AudioManager.playSoundEffect("back");
                 GameScreen.currentScreen = new GameOver(this.state.score);
                 // this.backgroundMusic.pause();
             }

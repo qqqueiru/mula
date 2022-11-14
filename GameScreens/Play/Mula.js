@@ -76,9 +76,7 @@ class Mula {
 
     #playCommandAudio(direction) {
         // direction debe ser "left" o "right"
-        const newCommandAudio = new Audio();
-        newCommandAudio.src = AudioManager.getAudio(direction).src;
-        newCommandAudio.play();
+        AudioManager.playSoundEffect(direction);
     }
 
     commandToDirection(direction) {
