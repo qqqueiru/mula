@@ -188,7 +188,6 @@ class StartMenu extends GameScreen {
     draw() {
         this.#selectionSquareX = Math.floor(GameScreen.width * (0.4 + 0.01 * Math.sin(this.#t)));
 
-
         GameScreen.ctx.beginPath();
         GameScreen.ctx.clearRect(0, 0, GameScreen.width, GameScreen.height);
         GameScreen.ctx.rect(0, 0, GameScreen.width, GameScreen.height);

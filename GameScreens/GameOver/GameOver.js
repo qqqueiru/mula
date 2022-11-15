@@ -2,6 +2,10 @@ class GameOver extends GameScreen {
     #score;
     #scoreRomanNumeral;
     #menus;
+    #fontColor = "#e91e63";
+    #t = 0;
+    #selectionSquareX;
+
     constructor(score) {
         super();
         this.#score = score;
@@ -139,7 +143,7 @@ class GameOver extends GameScreen {
     }
 
     #drawMainMenu(currentOptionIndex) {
-        GameScreen.ctx.fillStyle = "rgb(0, 0, 0)";
+        GameScreen.ctx.fillStyle = this.#fontColor;
         GameScreen.ctx.textAlign = "center";
         GameScreen.ctx.font = `bold ${Math.floor(0.055 * GameScreen.height)}px SigmarOne`;
         GameScreen.ctx.fillText("GAME OVER", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.4));
@@ -160,15 +164,15 @@ class GameOver extends GameScreen {
         // Rectangulito para indicar seleccion actual
         GameScreen.ctx.beginPath();
         GameScreen.ctx.rect(
-            Math.floor(GameScreen.width * 0.40), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
+            this.#selectionSquareX, Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
             Math.floor(GameScreen.width * 0.01), Math.floor(GameScreen.height * 0.02)
         );
-        GameScreen.ctx.fillStyle = "rgb(255, 0, 0)";
+        GameScreen.ctx.fillStyle = this.#fontColor;
         GameScreen.ctx.fill();
     }
 
     #drawShareMenu(currentOptionIndex) {
-        GameScreen.ctx.fillStyle = "rgb(0, 0, 0)";
+        GameScreen.ctx.fillStyle = this.#fontColor;
         GameScreen.ctx.textAlign = "center";
         GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px SigmarOne`;
         const optionsHeight = 0.44;
@@ -185,15 +189,15 @@ class GameOver extends GameScreen {
         }
         GameScreen.ctx.beginPath();
         GameScreen.ctx.rect(
-            Math.floor(GameScreen.width * 0.40), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
+            this.#selectionSquareX, Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
             Math.floor(GameScreen.width * 0.01), Math.floor(GameScreen.height * 0.02)
         );
-        GameScreen.ctx.fillStyle = "rgb(255, 0, 0)";
+        GameScreen.ctx.fillStyle = this.#fontColor;
         GameScreen.ctx.fill();
     }
 
     #drawHelpMenu(currentOptionIndex) {
-        GameScreen.ctx.fillStyle = "rgb(0, 0, 0)";
+        GameScreen.ctx.fillStyle = this.#fontColor;
         GameScreen.ctx.textAlign = "center";
         GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px SigmarOne`;
         const optionsHeight = 0.54;
@@ -203,15 +207,15 @@ class GameOver extends GameScreen {
         // Rectangulito para indicar seleccion actual
         GameScreen.ctx.beginPath();
         GameScreen.ctx.rect(
-            Math.floor(GameScreen.width * 0.40), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
+            this.#selectionSquareX, Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
             Math.floor(GameScreen.width * 0.01), Math.floor(GameScreen.height * 0.02)
         );
-        GameScreen.ctx.fillStyle = "rgb(255, 0, 0)";
+        GameScreen.ctx.fillStyle = this.#fontColor;
         GameScreen.ctx.fill();
     }
 
     #drawAboutMenu(currentOptionIndex) {
-        GameScreen.ctx.fillStyle = "rgb(0, 0, 0)";
+        GameScreen.ctx.fillStyle = this.#fontColor;
         GameScreen.ctx.textAlign = "center";
         GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px SigmarOne`;
         const optionsHeight = 0.54;
@@ -221,10 +225,10 @@ class GameOver extends GameScreen {
         // Rectangulito para indicar seleccion actual
         GameScreen.ctx.beginPath();
         GameScreen.ctx.rect(
-            Math.floor(GameScreen.width * 0.40), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
+            this.#selectionSquareX, Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
             Math.floor(GameScreen.width * 0.01), Math.floor(GameScreen.height * 0.02)
         );
-        GameScreen.ctx.fillStyle = "rgb(255, 0, 0)";
+        GameScreen.ctx.fillStyle = this.#fontColor;
         GameScreen.ctx.fill();
     }
 
@@ -233,6 +237,8 @@ class GameOver extends GameScreen {
     }
 
     update() {
+        this.#selectionSquareX = Math.floor(GameScreen.width * (0.4 + 0.01 * Math.sin(this.#t)));
+
         if (
             GameScreen.inputs.get("ArrowUp")?.consumeIfActivated() ||
             GameScreen.inputs.get("ArrowLeft")?.consumeIfActivated()
@@ -272,6 +278,8 @@ class GameOver extends GameScreen {
         ) {
             this.#backToMainMenu();
         }
+
+        this.#t += 0.15;
     }
 
     draw() {
@@ -280,7 +288,7 @@ class GameOver extends GameScreen {
             Math.floor(GameScreen.width / 4), Math.floor(GameScreen.height / 4),
             Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height / 2)
         );
-        GameScreen.ctx.fillStyle = "rgb(255, 255, 255)";
+        GameScreen.ctx.fillStyle = "#ffdddd";
         GameScreen.ctx.fill();
 
         const currentMenu = this.#menus.currentMenu;
