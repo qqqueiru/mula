@@ -1,5 +1,8 @@
 class Villain {
-    constructor(ctx) {
+    #dificulty;
+    constructor(ctx, dificulty) {
+        this.ctx = ctx;
+        this.#dificulty = dificulty;
         const w = ctx.canvas.width;
         this.xLimits = [0.15 * w, 0.85 * w];
         this.x = this.xLimits[1];
@@ -19,7 +22,6 @@ class Villain {
         this.framesUntilNextSpeedChange = 100;
         this.framesUntilNextItemDrop = 100;
         this.framesUntilNextDropHiatus = 1000;
-        this.ctx = ctx;
         this.sprites = {
             right:  new AnimatedSprite("villain_right", GameScreen.imgScale, 2, 1, 10, ctx),
             left:  new AnimatedSprite("villain_left", GameScreen.imgScale, 2, 1, 10, ctx),
@@ -37,7 +39,7 @@ class Villain {
     }
 
     #changeSpeed() {
-        this.vx = this.allowedSpeeds[parseInt(Math.random() * this.allowedSpeeds.length)];
+        this.vx = this.allowedSpeeds[parseInt(Math.random() * this.allowedSpeeds.length)] * this.#dificulty;
         if (this.vx == 0) {
             this.currentSprite = "idle";
         } else if (this.vx < 0) {
@@ -57,7 +59,7 @@ class Villain {
         let fallingItem;
         this.framesUntilNextItemDrop--;
         if (this.framesUntilNextItemDrop <= 0) {
-            const vy = GameScreen.height * (0.0065 + 0.0035 * Math.random());
+            const vy = GameScreen.height * (0.0065 + 0.0035 * Math.random()) * this.#dificulty;
             fallingItem = new FallingItem(this.x, this.y, vy, this.ctx);
             this.framesUntilNextItemDrop = 15 + Math.random() * 30;
         }

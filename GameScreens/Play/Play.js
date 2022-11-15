@@ -1,9 +1,10 @@
 class Play extends GameScreen {
+    #dificulty = 1.5;  // Cuanto más alto, más difícil
     constructor() {
         super();
         this.state = {
-            mula: new Mula(0.156 * GameScreen.width, 0.833 * GameScreen.height, GameScreen.ctx),
-            villain: new Villain(GameScreen.ctx),
+            mula: new Mula(0.156 * GameScreen.width, 0.833 * GameScreen.height, GameScreen.ctx, this.#dificulty),
+            villain: new Villain(GameScreen.ctx, this.#dificulty),
             fallingItems: [],
             difficulty: 0,
             score: 0,

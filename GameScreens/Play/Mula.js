@@ -38,16 +38,18 @@ class Ellipse {
  * Clase que gestiona la lógica de la mula. Puede que también su dibujado.
  */
 class Mula {
-    constructor(x, y, ctx) {
+    #dificulty;
+    constructor(x, y, ctx, dificulty) {
         this.x = x;
         this.y = y;
         this.ctx = ctx;
+        this.#dificulty = dificulty;
         this.ivx = 0;  // Número entero, que multiplicado por el incremento de velocidad debe resultar en vx
         this.vx = 0;  // Se permiten velocidades entre -this.maxSpeed y this.maxSpeed
         this.xLimits = [0.05 * ctx.canvas.width, 0.95 * ctx.canvas.width];
         this.maxISpeed = 4;
         this.maxSpeed = 0.01 * ctx.canvas.width;
-        this.speedIncrement = 0.0026 * ctx.canvas.width;
+        this.speedIncrement = 0.0026 * ctx.canvas.width * this.#dificulty;
         this.goodBoundingEllipse = new Ellipse(x, y, 0.1 * ctx.canvas.width, 0.09 * ctx.canvas.width, ctx);  // 200, 100 originalmente (cuando tenía 1920x1080)
         this.sprites = {
             right: new AnimatedSprite("mula_right", GameScreen.imgScale, 2, 1, -1, ctx),
