@@ -41,6 +41,9 @@ GameScreen.height = canvas.height;
 
 
 window.addEventListener("keydown", (event) => {
+    if (event.key == "F5") {
+        return;
+    }
     if (inputs.has(event.key)) {
         const input = inputs.get(event.key);
         if (input.isResetted()) {
