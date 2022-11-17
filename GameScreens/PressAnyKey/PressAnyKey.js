@@ -3,6 +3,8 @@ class PressAnyKey extends GameScreen {
     constructor() {
         super();
         this.t = 0;
+
+        AudioManager.startSilenceRoutine();
     }
 
     handleInputs() {

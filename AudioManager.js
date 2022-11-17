@@ -1,5 +1,4 @@
 class AudioManager {
-    // TODO evitar solicitud GET cuando se reproduce un audio
     constructor() {
     }
     static audios = new Map();
@@ -50,12 +49,24 @@ class AudioManager {
         audioToPlay.currentTime = 0;
         audioToPlay.play();
     }
+    static startSilenceRoutine() {
+        setInterval(() => {
+            const silenceAudio = AudioManager.audios.get("silence").audios[0];
+            const promise = silenceAudio.play();
+            promise.then(_ => {
+                // Se escucha silencio para mantener el audio activo siempre
+            }).catch(error => {
+                // No se atiende error
+            });
+        }, 2000);
+    }
     static loadAudios() {
         AudioManager.loadAudio("left", "./audio/left.ogg", 10);
         AudioManager.loadAudio("right", "./audio/right.ogg", 10);
         AudioManager.loadAudio("enter", "./audio/enter.ogg", 10);
         AudioManager.loadAudio("back", "./audio/back.ogg", 10);
         AudioManager.loadAudio("reward", "./audio/reward.ogg", 10);
+        AudioManager.loadAudio("silence", "./audio/silence.ogg", 1);
     }
 
 }
