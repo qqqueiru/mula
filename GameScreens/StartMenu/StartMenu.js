@@ -127,8 +127,27 @@ class StartMenu extends GameScreen {
     #drawAboutMenu(currentOptionIndex) {
         GameScreen.ctx.fillStyle = GameScreen.fontColor;
         GameScreen.ctx.textAlign = "center";
+        GameScreen.ctx.font = `bold ${Math.floor(0.050 * GameScreen.height)}px ${GameScreen.fontFamily}`;
+        GameScreen.ctx.fillText(
+            "MULA",
+            Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.35)
+        );
+        GameScreen.ctx.font = `bold ${Math.floor(0.030 * GameScreen.height)}px ${GameScreen.fontFamily}`;
+        GameScreen.ctx.fillText(
+            "Game made by Miguel Queiruga Portela",
+            Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.45)
+        );
+        GameScreen.ctx.fillText(
+            "All rights reserved",
+            Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.50)
+        );
+        GameScreen.ctx.fillText(
+            "© MMXXII Marín, Spain",
+            Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.55)
+        );
+
         GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px ${GameScreen.fontFamily}`;
-        const optionsHeight = 0.54;
+        const optionsHeight = 0.70;
         const optionsSpacing = 0.04;
         GameScreen.ctx.fillText("BACK", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
 
