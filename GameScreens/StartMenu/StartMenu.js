@@ -93,9 +93,25 @@ class StartMenu extends GameScreen {
     #drawHelpMenu(currentOptionIndex) {
         GameScreen.ctx.fillStyle = GameScreen.fontColor;
         GameScreen.ctx.textAlign = "center";
-        GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px ${GameScreen.fontFamily}`;
-        const optionsHeight = 0.54;
+
+        GameScreen.ctx.font = `bold ${Math.floor(0.100 * GameScreen.height)}px ${GameScreen.fontFamily}`;
+        GameScreen.ctx.fillText("⬅ 🐴 ➡", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.4));
+        GameScreen.ctx.font = `bold ${Math.floor(0.025 * GameScreen.height)}px ${GameScreen.fontFamily}`;
+        GameScreen.ctx.fillText(
+            "You command the mule to catch every item that the villain drops",
+            Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.5)
+        );
+        GameScreen.ctx.fillText(
+            "The mule is very stubborn so you better be precise about your commands",
+            Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.55)
+        );
+        GameScreen.ctx.fillText(
+            "The game ends when you fail to collect one item",
+            Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.6)
+        );
+        const optionsHeight = 0.70;
         const optionsSpacing = 0.04;
+        GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px ${GameScreen.fontFamily}`;
         GameScreen.ctx.fillText("BACK", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
 
         // Rectangulito para indicar seleccion actual
