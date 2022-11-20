@@ -105,15 +105,15 @@ class Play extends GameScreen {
             Math.floor(rectSize.w), 
             Math.floor(rectSize.h)
         );
-        GameScreen.ctx.fillStyle = "#e9afaf";
+        GameScreen.ctx.fillStyle = "#fee9b2";
         GameScreen.ctx.fill();
 
-        GameScreen.ctx.strokeStyle = "#d35f5f";
+        GameScreen.ctx.strokeStyle = "#bb9679";
         GameScreen.ctx.lineWidth = GameScreen.imgScale * 2;
         GameScreen.ctx.stroke();
 
         GameScreen.ctx.font = `bold ${Math.floor(0.055 * GameScreen.height)}px TimesNewRoman`;
-        GameScreen.ctx.fillStyle = "#d35f5f";
+        GameScreen.ctx.fillStyle = "#bb9679";
         GameScreen.ctx.fillText(
             romanNumeral,
             Math.floor(scorePos.x), 
