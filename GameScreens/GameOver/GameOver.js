@@ -49,10 +49,10 @@ class GameOver extends GameScreen {
                         name: "LINKEDIN",
                         updateHandle: ()=>{this.#shareLinkedin()},
                     },
-                    {
-                        name: "PINTEREST",
-                        updateHandle: ()=>{this.#sharePinterest()},
-                    },
+                    // {
+                    //     name: "PINTEREST",
+                    //     updateHandle: ()=>{this.#sharePinterest()},
+                    // },
                     {
                         name: "BACK",
                         updateHandle: ()=>{this.#backToMainMenu()},
@@ -115,7 +115,7 @@ class GameOver extends GameScreen {
     #shareFacebook() {
         AudioManager.playSoundEffect("enter");
         setTimeout(()=>{
-            const url = `https://facebook.com`;
+            const url = `https://www.facebook.com/sharer/sharer.php?u=https%3A//www.google.com`;
             window.open(url, '_blank').focus();
         }, 100);
     }
@@ -123,7 +123,7 @@ class GameOver extends GameScreen {
     #shareLinkedin() {
         AudioManager.playSoundEffect("enter");
         setTimeout(()=>{
-            const url = `https://linkedin.com`;
+            const url = `https://www.linkedin.com/shareArticle?mini=true&url=https%3A//www.google.com`;
             window.open(url, '_blank').focus();
         }, 100);
     }
@@ -179,11 +179,11 @@ class GameOver extends GameScreen {
         GameScreen.ctx.fillText("TWITTER", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
         GameScreen.ctx.fillText("FACEBOOK", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 1)));
         GameScreen.ctx.fillText("LINKEDIN", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 2)));
-        GameScreen.ctx.fillText("PINTEREST", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 3)));
+        // GameScreen.ctx.fillText("PINTEREST", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 3)));
         GameScreen.ctx.fillText(TR.BACK[lang], Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 6)));
 
         // Rectangulito para indicar seleccion actual
-        if (currentOptionIndex > 3) {
+        if (currentOptionIndex > 2) {
             currentOptionIndex = 6;
         }
         GameScreen.ctx.beginPath();
