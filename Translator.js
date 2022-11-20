@@ -46,7 +46,7 @@ const TR = {
     },
     help1: {
         en: "The mule is very stubborn so you better be precise about your commands",
-        es: "La mula es muy terca y, por tanto,  debes precisar tus comandos",
+        es: "La mula es muy terca y, por tanto, debes precisar tus comandos",
         gl: "A mula é moi teimosa e, polo tanto, debes precisar os teus comandos",
         la: "Mulus valde contumax est, ut de mandatis tuis securus esse velis",
     },
