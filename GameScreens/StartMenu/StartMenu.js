@@ -1,7 +1,6 @@
 class StartMenu extends GameScreen {
     #menus;
     #fadeInCircleRadius = 0;
-    #fontColor = "#e91e63";
     #t = 0;
     #selectionSquareX;
     constructor() {
@@ -70,11 +69,11 @@ class StartMenu extends GameScreen {
     }
 
     #drawMainMenu(currentOptionIndex) {
-        GameScreen.ctx.fillStyle = this.#fontColor;
+        GameScreen.ctx.fillStyle = GameScreen.fontColor;
         GameScreen.ctx.textAlign = "center";
-        GameScreen.ctx.font = `bold ${Math.floor(0.055 * GameScreen.height)}px SigmarOne`;
+        GameScreen.ctx.font = `bold ${Math.floor(0.055 * GameScreen.height)}px ${GameScreen.fontFamily}`;
         GameScreen.ctx.fillText("MULA", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * 0.4));
-        GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px SigmarOne`;
+        GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px ${GameScreen.fontFamily}`;
         const optionsHeight = 0.54;
         const optionsSpacing = 0.04;
         GameScreen.ctx.fillText("START", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
@@ -87,14 +86,14 @@ class StartMenu extends GameScreen {
             this.#selectionSquareX, Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
             Math.floor(GameScreen.width * 0.01), Math.floor(GameScreen.height * 0.02)
         );
-        GameScreen.ctx.fillStyle = this.#fontColor;
+        GameScreen.ctx.fillStyle = GameScreen.fontColor;
         GameScreen.ctx.fill();
     }
 
     #drawHelpMenu(currentOptionIndex) {
-        GameScreen.ctx.fillStyle = this.#fontColor;
+        GameScreen.ctx.fillStyle = GameScreen.fontColor;
         GameScreen.ctx.textAlign = "center";
-        GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px SigmarOne`;
+        GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px ${GameScreen.fontFamily}`;
         const optionsHeight = 0.54;
         const optionsSpacing = 0.04;
         GameScreen.ctx.fillText("BACK", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
@@ -105,14 +104,14 @@ class StartMenu extends GameScreen {
             this.#selectionSquareX, Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
             Math.floor(GameScreen.width * 0.01), Math.floor(GameScreen.height * 0.02)
         );
-        GameScreen.ctx.fillStyle = this.#fontColor;
+        GameScreen.ctx.fillStyle = GameScreen.fontColor;
         GameScreen.ctx.fill();
     }
 
     #drawAboutMenu(currentOptionIndex) {
-        GameScreen.ctx.fillStyle = this.#fontColor;
+        GameScreen.ctx.fillStyle = GameScreen.fontColor;
         GameScreen.ctx.textAlign = "center";
-        GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px SigmarOne`;
+        GameScreen.ctx.font = `bold ${Math.floor(0.028 * GameScreen.height)}px ${GameScreen.fontFamily}`;
         const optionsHeight = 0.54;
         const optionsSpacing = 0.04;
         GameScreen.ctx.fillText("BACK", Math.floor(GameScreen.width / 2), Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * 0)));
@@ -123,7 +122,7 @@ class StartMenu extends GameScreen {
             this.#selectionSquareX, Math.floor(GameScreen.height * (optionsHeight + optionsSpacing * currentOptionIndex - 0.02)),
             Math.floor(GameScreen.width * 0.01), Math.floor(GameScreen.height * 0.02)
         );
-        GameScreen.ctx.fillStyle = this.#fontColor;
+        GameScreen.ctx.fillStyle = GameScreen.fontColor;
         GameScreen.ctx.fill();
     }
 
@@ -191,7 +190,7 @@ class StartMenu extends GameScreen {
         GameScreen.ctx.beginPath();
         GameScreen.ctx.clearRect(0, 0, GameScreen.width, GameScreen.height);
         GameScreen.ctx.rect(0, 0, GameScreen.width, GameScreen.height);
-        GameScreen.ctx.fillStyle = "#fdf5e6";
+        GameScreen.ctx.fillStyle = GameScreen.fontColor;  // "#775c9f";  // "#fdf5e6";
         GameScreen.ctx.fill();
 
         GameScreen.ctx.beginPath();
@@ -201,6 +200,10 @@ class StartMenu extends GameScreen {
         );
         GameScreen.ctx.fillStyle = "#ffdddd";
         GameScreen.ctx.fill();
+
+        GameScreen.ctx.strokeStyle = GameScreen.fontColor;
+        GameScreen.ctx.lineWidth = GameScreen.imgScale * 2;
+        GameScreen.ctx.stroke();
 
         const currentMenu = this.#menus.currentMenu;
         const drawHandleFunction = this.#menus[currentMenu].drawHandle;

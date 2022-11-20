@@ -28,7 +28,7 @@ class FontManager {
     }
     static loadFonts() {
         // TODO hacer aquí la carga de todas las fuentes
-        FontManager.loadFont("SigmarOne", "./fonts/SigmarOne.otf");
+        // FontManager.loadFont("SigmarOne", "./fonts/SigmarOne.otf");
     }
 
 }

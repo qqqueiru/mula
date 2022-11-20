@@ -1,5 +1,4 @@
 class PressAnyKey extends GameScreen {
-    #fontColor = "#e91e63";
     constructor() {
         super();
         this.t = 0;
@@ -29,10 +28,10 @@ class PressAnyKey extends GameScreen {
     
         this.t += 0.15;
         const fontSize = Math.floor(0.0463 * GameScreen.height);  // + 5 * Math.sin(this.t);
-        GameScreen.ctx.font = `bold ${fontSize}px SigmarOne`;
+        GameScreen.ctx.font = `bold ${fontSize}px ${GameScreen.fontFamily}`;
         GameScreen.ctx.textAlign = "center";
 
-        GameScreen.ctx.fillStyle = this.#fontColor;
+        GameScreen.ctx.fillStyle = GameScreen.fontColor;
         // GameScreen.ctx.strokeStyle = "rgb(255, 0, 0)";
         // GameScreen.ctx.lineWidth = 1;
         GameScreen.ctx.fillText(
