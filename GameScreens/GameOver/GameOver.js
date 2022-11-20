@@ -107,7 +107,7 @@ class GameOver extends GameScreen {
         // https://www.sharelinkgenerator.com/
         setTimeout(()=>{
             const scoreToShow = this.#score > 0 ? this.#scoreRomanNumeral : 0;
-            const url = `https://twitter.com/intent/tweet?text=I%20scored%20${scoreToShow}%20point${this.#score == 1 ? "" : "s"}%20on%20Mula.%20LINK`;
+            const url = `https://twitter.com/intent/tweet?text=I%20scored%20${scoreToShow}%20point${this.#score == 1 ? "" : "s"}%20on%20Mula.%0Aqqqueiru.github.io/mula/`;
             window.open(url, '_blank').focus();
         }, 100);
     }
@@ -115,7 +115,7 @@ class GameOver extends GameScreen {
     #shareFacebook() {
         AudioManager.playSoundEffect("enter");
         setTimeout(()=>{
-            const url = `https://www.facebook.com/sharer/sharer.php?u=https%3A//www.google.com`;
+            const url = `https://www.facebook.com/sharer/sharer.php?u=https%3A//qqqueiru.github.io/mula/`;
             window.open(url, '_blank').focus();
         }, 100);
     }
@@ -123,7 +123,7 @@ class GameOver extends GameScreen {
     #shareLinkedin() {
         AudioManager.playSoundEffect("enter");
         setTimeout(()=>{
-            const url = `https://www.linkedin.com/shareArticle?mini=true&url=https%3A//www.google.com`;
+            const url = `https://www.linkedin.com/shareArticle?mini=true&url=https%3A//qqqueiru.github.io/mula/`;
             window.open(url, '_blank').focus();
         }, 100);
     }
