@@ -1,9 +1,9 @@
 # Mula
 
-Version: 0.0.1<br/>
-Release date: unknown<br/>
-Current state: under development<br/>
-[github.com/qqqueiru/mula](https://github.com/qqqueiru/mula/)
+Version: 1.0.0<br/>
+Release date: 2022-11-20<br/>
+Current state: released<br/>
+[qqqueiru.github.io/mula](https://qqqueiru.github.io/mula/)
 
 ## Summary
 This is a simple JavaScript video game for the web browser client.
