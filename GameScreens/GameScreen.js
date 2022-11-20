@@ -5,7 +5,8 @@ class GameScreen {
     static width;
     static height;
 
-    static fontColor = "#bb9679";
+    static fontColor = "#856345";
+    static fontColorLighter = "#ffdddd";
     static fontFamily = "TimesNewRoman";
 
     constructor() {

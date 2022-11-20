@@ -36,7 +36,7 @@ class LoadingScreen extends GameScreen {
         GameScreen.ctx.font = `bold ${fontSize}px Arial`;
         GameScreen.ctx.textAlign = "right";
 
-        GameScreen.ctx.fillStyle = GameScreen.fontColor;
+        GameScreen.ctx.fillStyle = GameScreen.fontColorLighter;
         const percentage = Math.floor(this.#progress * 100);
         GameScreen.ctx.fillText(`${percentage} %`, GameScreen.width / 2 + 75, GameScreen.height * 0.5);
 

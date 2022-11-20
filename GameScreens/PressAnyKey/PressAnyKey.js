@@ -31,7 +31,7 @@ class PressAnyKey extends GameScreen {
         GameScreen.ctx.font = `bold ${fontSize}px ${GameScreen.fontFamily}`;
         GameScreen.ctx.textAlign = "center";
 
-        GameScreen.ctx.fillStyle = GameScreen.fontColor;
+        GameScreen.ctx.fillStyle = GameScreen.fontColorLighter;
         // GameScreen.ctx.strokeStyle = "rgb(255, 0, 0)";
         // GameScreen.ctx.lineWidth = 1;
         GameScreen.ctx.fillText(
