@@ -1,3 +1,10 @@
+// Selección automática de idioma
+const navLang = navigator.language.split("-")[0];  // Queremos "en", no "en-US"
+if (availableLangs.includes(navLang))
+{
+    lang = navLang;
+}
+
 // TODO pensar en una alternativa a canvas, para ver si mejora el rendimiento
 const canvas = document.getElementById("mula_canvas");
 const ctx = canvas.getContext("2d", { alpha: false, desynchronized: true });

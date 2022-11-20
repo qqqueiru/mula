@@ -35,7 +35,7 @@ class PressAnyKey extends GameScreen {
         // GameScreen.ctx.strokeStyle = "rgb(255, 0, 0)";
         // GameScreen.ctx.lineWidth = 1;
         GameScreen.ctx.fillText(
-            `PRESS ANY KEY`, 
+            TR.PressAnyKey[lang], 
             Math.floor(GameScreen.width * (0.5 + 0.01 * Math.sin(this.t))),
             Math.floor(GameScreen.height * 0.5)
         );
