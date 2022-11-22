@@ -110,6 +110,7 @@ class GameOver extends GameScreen {
             const url = `https://twitter.com/intent/tweet?text=I%20scored%20${scoreToShow}%20point${this.#score == 1 ? "" : "s"}%20on%20Mula.%0Aqqqueiru.github.io/mula/`;
             window.open(url, '_blank').focus();
         }, 100);
+        inputs.clear();
     }
 
     #shareFacebook() {
@@ -118,6 +119,7 @@ class GameOver extends GameScreen {
             const url = `https://www.facebook.com/sharer/sharer.php?u=https%3A//qqqueiru.github.io/mula/`;
             window.open(url, '_blank').focus();
         }, 100);
+        inputs.clear();
     }
 
     #shareLinkedin() {
@@ -126,6 +128,7 @@ class GameOver extends GameScreen {
             const url = `https://www.linkedin.com/shareArticle?mini=true&url=https%3A//qqqueiru.github.io/mula/`;
             window.open(url, '_blank').focus();
         }, 100);
+        inputs.clear();
     }
 
     #sharePinterest() {
@@ -134,6 +137,7 @@ class GameOver extends GameScreen {
             const url = `https://pinterest.com`;
             window.open(url, '_blank').focus();
         }, 100);
+        inputs.clear();
     }
 
     #backToMainMenu() {
