@@ -329,9 +329,9 @@ class GameOver extends GameScreen {
         GameScreen.ctx.fillStyle = "#ffdddd";
         GameScreen.ctx.fill();
 
-        GameScreen.ctx.strokeStyle = GameScreen.fontColor;
-        GameScreen.ctx.lineWidth = GameScreen.imgScale * 2;
-        GameScreen.ctx.stroke();
+        // GameScreen.ctx.strokeStyle = GameScreen.fontColor;
+        // GameScreen.ctx.lineWidth = GameScreen.imgScale * 2;
+        // GameScreen.ctx.stroke();
 
         const currentMenu = this.#menus.currentMenu;
         const drawHandleFunction = this.#menus[currentMenu].drawHandle;
