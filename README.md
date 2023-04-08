@@ -1,5 +1,5 @@
 # Mula
-
+![Mula Gameplay Screenshot](https://github.com/qqqueiru/mula/blob/main/img/mula_gameplay.png?raw=true)<br/>
 Version: 1.0.0<br/>
 Release date: 2022-11-20<br/>
 Current state: released<br/>
